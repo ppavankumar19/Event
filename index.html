@@ -32,16 +32,10 @@
     }
     .container{max-width:1100px;}
 
-    /* Sections */
     section{padding:55px 0;}
-    @media (max-width:768px){
-      section{padding:42px 0;}
-    }
+    @media (max-width:768px){ section{padding:42px 0;} }
 
-    .section-title{
-      text-align:center;
-      margin-bottom:26px;
-    }
+    .section-title{ text-align:center; margin-bottom:26px; }
     .section-title h3{
       font-weight:900;
       display:inline-block;
@@ -50,22 +44,17 @@
       letter-spacing:-.02em;
       font-size:2rem;
     }
-    @media (max-width:768px){
-      .section-title h3{font-size:1.6rem;}
-    }
+    @media (max-width:768px){ .section-title h3{font-size:1.6rem;} }
     .section-title h3:after{
       content:"";
-      width:70px;
-      height:4px;
+      width:70px;height:4px;
       background: var(--olive-700);
       position:absolute;
-      bottom:0;
-      left:50%;
+      bottom:0;left:50%;
       transform:translateX(-50%);
       border-radius:5px;
     }
 
-    /* Backgrounds / cards */
     .soft-bg{background: var(--olive-200);}
     .cardx{
       background: var(--card);
@@ -75,18 +64,7 @@
       padding: 20px;
       height:100%;
     }
-    .cardx.p-0{padding:0 !important;}
-    .overflow-hidden{overflow:hidden;}
-    .cardx img{
-      border-radius:16px;
-      width:100%;
-      height:auto;
-      display:block;
-      transition: transform .35s ease;
-    }
-    .cardx:hover img{transform: scale(1.03);}
 
-    /* KPI blocks */
     .kpi{
       display:flex;align-items:flex-start;gap:10px;
       padding:12px 12px;border-radius:12px;
@@ -110,31 +88,22 @@
       margin: 6px 8px 0 0;
     }
 
-    /* Professional navbar */
+    /* Navbar */
     .navbar{
       background: rgba(10,18,28,.82) !important;
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(255,255,255,.10);
     }
-    .navbar .navbar-brand{
-      font-weight:900;
-      letter-spacing:.3px;
-      color:#fff !important;
-    }
+    .navbar .navbar-brand{ font-weight:900; letter-spacing:.3px; color:#fff !important; }
     .navbar .nav-link{
       color: rgba(255,255,255,.92) !important;
       font-weight:700;
       padding: .65rem .9rem !important;
       border-radius: 10px;
     }
-    .navbar .nav-link:hover{
-      background: rgba(255,255,255,.08);
-    }
-    .navbar-toggler{
-      border:1px solid rgba(255,255,255,.20) !important;
-      outline:none !important;
-    }
+    .navbar .nav-link:hover{ background: rgba(255,255,255,.08); }
+    .navbar-toggler{ border:1px solid rgba(255,255,255,.20) !important; outline:none !important; }
     .navbar-collapse{padding-top:10px;}
     @media (max-width: 991px){
       .navbar-collapse{
@@ -178,12 +147,8 @@
       letter-spacing:-.03em;
       font-size:3.1rem;
     }
-    #intro .dept{
-      opacity:.95;
-      margin-top:16px;
-      font-size:1.06rem;
-      line-height:1.55;
-    }
+    #intro .dept{ opacity:.95; margin-top:16px; font-size:1.06rem; line-height:1.55; }
+
     .btn-pill{
       border-radius: 999px !important;
       padding: 12px 22px !important;
@@ -216,9 +181,7 @@
       grid-template-columns: repeat(2, minmax(0,1fr));
       gap:14px;
     }
-    @media (max-width:768px){
-      .topics-grid, .speakers-grid{grid-template-columns:1fr;}
-    }
+    @media (max-width:768px){ .topics-grid, .speakers-grid{grid-template-columns:1fr;} }
     .topic-tile, .speaker-tile{
       background:#fff;
       border-radius:14px;
@@ -240,7 +203,37 @@
     .topic-title{font-weight:900;font-size:1.05rem;margin:0;color:#111827;}
     .speaker-text{margin:0;font-weight:900;font-size:1.02rem;color:#111827;}
 
-    /* Committee grid */
+    /* Scope section alignment */
+    .about-center{ max-width: 900px; margin: 0 auto; }
+    .about-center p{
+      text-align: justify !important;
+      max-width: 820px;
+      margin: 0 auto;
+      line-height: 1.9;
+      font-size: 1.04rem;
+      font-weight: 500;
+    }
+    @media (max-width: 768px){
+      .about-center p{ text-align: left !important; }
+    }
+    .about-center .pill-wrap{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:10px;
+      margin-top: 16px;
+    }
+
+    /* Organizing + committee */
+    .subhead{
+      font-weight: 900;
+      font-size: 1.25rem;
+      margin-bottom: 10px;
+      letter-spacing: -.01em;
+    }
+    .muted{opacity:.85;}
+
+    /* Committee cards */
     .committee-title{
       text-align:center;
       font-weight:900;
@@ -268,56 +261,16 @@
       align-items:center;
       justify-content:center;
     }
-    @media (max-width: 1200px){
-      .committee-grid{grid-template-columns: repeat(3, minmax(0, 1fr));}
-    }
-    @media (max-width: 768px){
-      .committee-grid{grid-template-columns: repeat(2, minmax(0, 1fr));}
-    }
+    @media (max-width: 1200px){ .committee-grid{grid-template-columns: repeat(3, minmax(0, 1fr));} }
+    @media (max-width: 768px){ .committee-grid{grid-template-columns: repeat(2, minmax(0, 1fr));} }
     @media (max-width: 576px){
       .committee-card{min-height:auto; padding:14px 12px; font-size:.95rem;}
       .committee-title{font-size:1.15rem;}
     }
 
-    /* ===== Scope: better font treatment ===== */
-    /* ===== Scope alignment (better centered + readable) ===== */
-    .about-center{
-      max-width: 900px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    
-    .about-center p{
-      text-align: justify !important;   /* change from center */
-      max-width: 820px;
-      margin: 0 auto;
-      line-height: 1.85;
-    }
-    
-    @media (max-width: 768px){
-      .about-center p{
-        text-align: left !important;    /* mobile lo left is easier */
-      }
-    }
-    
-    .about-center .pill-wrap{
-      display:flex;
-      flex-wrap:wrap;
-      justify-content:center;
-      gap:10px;
-      margin-top: 16px;
-    }
-    
-    
-    /* ===== Contact: better font treatment ===== */
-    #contact .cardx{
-      padding: 24px;
-    }
-    #contact h5{
-      font-weight: 900;
-      letter-spacing: -.01em;
-      margin-bottom: 12px;
-    }
+    /* Contact */
+    #contact .cardx{ padding: 24px; }
+    #contact h5{ font-weight: 900; letter-spacing: -.01em; margin-bottom: 12px; }
     #contact p, #contact li{
       font-size: 1.02rem;
       line-height: 1.75;
@@ -326,7 +279,7 @@
     }
     #contact a{font-weight:800;}
 
-    /* ===== Supported: logos fill the card nicely ===== */
+    /* Supported logos fill nicely */
     .supported-logos{
       display:grid;
       grid-template-columns: 1fr 1fr;
@@ -341,35 +294,23 @@
       background:#fff;
       border:1px solid rgba(2,6,23,.10);
       border-radius:16px;
-      padding:16px;
+      padding:14px;
       box-shadow: 0 10px 22px rgba(2,6,23,.08);
-      min-height: 140px;
+      min-height: 170px;
     }
     .supported-logos img{
       max-width: 100%;
-      max-height: 105px;
+      max-height: 130px;
       width: auto;
       height: auto;
       object-fit: contain;
-      border-radius: 0;
-      box-shadow: none;
-      border: none;
-      background: transparent;
-      padding: 0;
     }
     @media (max-width: 576px){
-      .supported-logos{
-        grid-template-columns: 1fr;
-      }
-      .supported-logos .logo-box{
-        min-height: 120px;
-      }
-      .supported-logos img{
-        max-height: 95px;
-      }
+      .supported-logos{ grid-template-columns: 1fr; }
+      .supported-logos .logo-box{ min-height: 150px; }
+      .supported-logos img{ max-height: 120px; }
     }
 
-    /* Footer */
     footer{
       background: var(--olive-900);
       color:#fff;
@@ -397,7 +338,14 @@
           <li class="nav-item"><a class="nav-link" href="#speakers">Invited Speakers</a></li>
           <li class="nav-item"><a class="nav-link" href="#dates">Important Dates</a></li>
           <li class="nav-item"><a class="nav-link" href="#registration">Registration</a></li>
-          <li class="nav-item"><a class="nav-link" href="#committee">Committee</a></li>
+
+          <!-- Committee should go to Organizing Team -->
+          <li class="nav-item"><a class="nav-link" href="#organizing-team">Committee</a></li>
+
+          <!-- New tabs -->
+          <li class="nav-item"><a class="nav-link" href="#howtoreach">How to Reach / Venue</a></li>
+          <li class="nav-item"><a class="nav-link" href="#accommodation">Accommodation</a></li>
+
           <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
       </div>
@@ -409,7 +357,6 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-10 text-center">
-
           <div class="mb-3">
             <img src="assets/iitg.png" alt="IIT Guwahati Logo" style="
               width:110px;height:110px;object-fit:contain;
@@ -419,18 +366,14 @@
               padding:10px;">
           </div>
 
-          <div style="opacity:.92; font-weight:800; font-size:1.15rem;">
-            International Symposium on
-          </div>
+          <div style="opacity:.92; font-weight:800; font-size:1.15rem;">International Symposium on</div>
 
           <h1>
             Symposium on <span style="color:#d8ff7a;">Algal</span> and
             <span style="color:#fff;">Organic Waste Based Biorefinery</span>
           </h1>
 
-          <div class="mt-3">
-            <span class="badge-date">March 21 – 22, 2026</span>
-          </div>
+          <div class="mt-3"><span class="badge-date">March 21 – 22, 2026</span></div>
 
           <div class="dept mt-4" style="max-width:820px; margin-left:auto; margin-right:auto;">
             <div><strong>Department of Chemical Engineering</strong> &amp;</div>
@@ -450,7 +393,6 @@
           <div class="mt-4" style="opacity:.92;">
             <strong>Patron:</strong> Prof. Devendra Jalihal, Director, IIT Guwahati
           </div>
-
         </div>
       </div>
     </div>
@@ -461,9 +403,7 @@
     <!-- ABOUT -->
     <section id="about" class="soft-bg">
       <div class="container">
-        <div class="section-title">
-          <h3>Scope of the Event</h3>
-        </div>
+        <div class="section-title"><h3>Scope of the Event</h3></div>
 
         <div class="about-center">
           <div class="cardx">
@@ -486,16 +426,13 @@
             </div>
           </div>
         </div>
-
       </div>
     </section>
 
     <!-- TOPICS -->
     <section id="topics">
       <div class="container">
-        <div class="section-title">
-          <h3>Symposium Topics</h3>
-        </div>
+        <div class="section-title"><h3>Symposium Topics</h3></div>
 
         <div class="topics-wrap">
           <div class="topics-grid">
@@ -509,10 +446,7 @@
             <div class="topic-tile"><div class="topic-ico"><i class="fa fa-star"></i></div><p class="topic-title">Bio-crude oil upgradation</p></div>
             <div class="topic-tile"><div class="topic-ico"><i class="fa fa-star"></i></div><p class="topic-title">Techno-economics and life-cycle analysis</p></div>
           </div>
-
-          <div class="mt-3 text-center" style="opacity:.8;">
-            <em>Submissions from other relevant areas are also invited.</em>
-          </div>
+          <div class="mt-3 text-center" style="opacity:.8;"><em>Submissions from other relevant areas are also invited.</em></div>
         </div>
       </div>
     </section>
@@ -520,9 +454,7 @@
     <!-- SPEAKERS -->
     <section id="speakers" class="soft-bg">
       <div class="container">
-        <div class="section-title">
-          <h3>Tentative Invited Speakers</h3>
-        </div>
+        <div class="section-title"><h3>Tentative Invited Speakers</h3></div>
 
         <div class="speakers-wrap">
           <div class="speakers-grid">
@@ -543,25 +475,14 @@
     <!-- IMPORTANT DATES -->
     <section id="dates">
       <div class="container">
-        <div class="section-title">
-          <h3>Important Dates</h3>
-        </div>
+        <div class="section-title"><h3>Important Dates</h3></div>
 
         <div class="row">
           <div class="col-lg-12">
             <div class="cardx">
-              <div class="kpi">
-                <i class="fa fa-calendar"></i>
-                <div><strong>Last Date of Abstract Submission</strong><br>February 20, 2026</div>
-              </div>
-              <div class="kpi">
-                <i class="fa fa-check-circle"></i>
-                <div><strong>Intimation of Acceptance</strong><br>February 20, 2026</div>
-              </div>
-              <div class="kpi">
-                <i class="fa fa-clock-o"></i>
-                <div><strong>Last Date for Registration</strong><br>February 28, 2026</div>
-              </div>
+              <div class="kpi"><i class="fa fa-calendar"></i><div><strong>Last Date of Abstract Submission</strong><br>February 20, 2026</div></div>
+              <div class="kpi"><i class="fa fa-check-circle"></i><div><strong>Intimation of Acceptance</strong><br>February 20, 2026</div></div>
+              <div class="kpi"><i class="fa fa-clock-o"></i><div><strong>Last Date for Registration</strong><br>February 28, 2026</div></div>
 
               <div class="mt-3 d-flex flex-wrap" style="gap:10px;">
                 <a class="btn btn-pill btn-green" target="_blank" rel="noopener" href="https://forms.office.com/r/AwUQQFLP7H">
@@ -580,25 +501,15 @@
     <!-- REGISTRATION -->
     <section id="registration" class="soft-bg">
       <div class="container">
-        <div class="section-title">
-          <h3>Registration</h3>
-        </div>
+        <div class="section-title"><h3>Registration</h3></div>
 
         <div class="row">
           <div class="col-lg-7">
             <div class="cardx">
-              <p class="mb-2">
-                Accommodation will be provided in the IITG campus and is included in the registration fee.
-              </p>
+              <p class="mb-2">Accommodation will be provided in the IITG campus and is included in the registration fee.</p>
 
-              <div class="kpi">
-                <i class="fa fa-graduation-cap"></i>
-                <div><strong>Students</strong><br>Rs. 2000 / USD 100</div>
-              </div>
-              <div class="kpi">
-                <i class="fa fa-briefcase"></i>
-                <div><strong>Professionals</strong><br>Rs. 4000 / USD 150</div>
-              </div>
+              <div class="kpi"><i class="fa fa-graduation-cap"></i><div><strong>Students</strong><br>Rs. 2000 / USD 100</div></div>
+              <div class="kpi"><i class="fa fa-briefcase"></i><div><strong>Professionals</strong><br>Rs. 4000 / USD 150</div></div>
 
               <a class="btn btn-pill btn-green mt-2" target="_blank" rel="noopener" href="https://forms.office.com/r/BB5jGG9Uhp">
                 <i class="fa fa-ticket"></i> Open Registration Form
@@ -617,43 +528,114 @@
             </div>
           </div>
         </div>
-
       </div>
     </section>
 
-    <!-- COMMITTEE -->
-    <section id="committee" class="soft-bg">
+    <!-- ORGANIZING TEAM (Committee nav goes here) -->
+    <section id="organizing-team" class="soft-bg">
       <div class="container">
-        <div class="committee-title">Local Organizing Committee</div>
+        <div class="section-title"><h3>Organizing Team</h3></div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="cardx">
+              <div class="subhead">Patron</div>
+              <p class="mb-3">Prof. Devendra Jalihal, Director, IIT Guwahati</p>
+
+              <div class="subhead">Chairperson</div>
+              <p class="mb-3">Prof. Rohit Sinha, Dean Research and Development, IIT Guwahati</p>
+
+              <div class="subhead">Conveners</div>
+              <ul class="list-clean mb-0">
+                <li>Dr. Vaibhav V Goud, Professor, Department of Chemical Engineering and School of Energy Science and Engineering, IIT Guwahati</li>
+                <li>Dr Ajay K Dalai, Professor, University of Saskatchewan, Canada</li>
+                <li>Dr Nageswara Rao Peela, Professor, Department of Chemical Engineering, IIT Guwahati</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMITTEE MEMBERS -->
+    <section id="committee-members">
+      <div class="container">
+        <div class="committee-title">Organizing Committee Members</div>
 
         <div class="committee-grid">
+          <div class="committee-card">Prof. Vijayanand S Moholkar</div>
+          <div class="committee-card">Prof. K. Pakshirajan</div>
+          <div class="committee-card">Prof. Arun Goyal</div>
           <div class="committee-card">Prof. K. Mohanty</div>
           <div class="committee-card">Prof. Animesh K Golder</div>
+
           <div class="committee-card">Prof. Chandan Das</div>
           <div class="committee-card">Prof. Ramgopal VS Uppaluri</div>
-          <div class="committee-card">Prof. Arun Goyal</div>
-
           <div class="committee-card">Prof. Pankaj Tiwari</div>
-          <div class="committee-card">Prof. K. Pakshirajan</div>
-          <div class="committee-card">Prof. Vijayanand S Moholkar</div>
           <div class="committee-card">Prof. Debasish Das</div>
           <div class="committee-card">Prof. Pankaj Kalita</div>
 
           <div class="committee-card">Prof. Farrukh Khalid</div>
         </div>
+      </div>
+    </section>
 
-        <div class="mt-4 text-center" style="opacity:.9;">
-          <strong>Patron:</strong> Prof. Devendra Jalihal, Director, IIT Guwahati
+    <!-- HOW TO REACH + VENUE -->
+    <section id="howtoreach" class="soft-bg">
+      <div class="container">
+        <div class="section-title"><h3>How to Reach & Venue</h3></div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="cardx">
+              <div class="subhead">How to Reach</div>
+
+              <p class="mb-3">
+                <strong>By Air:</strong> The distance from Lokpriya Gopinath Bordoloi International Airport (GAU) to IIT Guwahati is about 22 km.
+                A pre-paid taxi counter is available in the Arrival Lounge (inside Airport). You can take a prepaid taxi to reach IIT Guwahati campus.
+              </p>
+
+              <p class="mb-4">
+                <strong>By Train:</strong> The distance from Guwahati Railway Station (GHY) to IIT Guwahati is about 18 km.
+                If arriving at GHY, come out through Platform No.1 exit gate (Panbazar / Lakhtokia side).
+                Limited IIT buses run from Lakhtokia (near Don Bosco School's Church / Cotton College Boys Hostel) to IIT campus.
+                Kamakhya Railway Station (KYQ) is about 13 km from IIT Guwahati; for commuting you may need taxi/auto-rickshaw.
+              </p>
+
+              <div class="subhead">Venue</div>
+              <p class="mb-0">
+                Conference Centre,<br>
+                Indian Institute of Technology Guwahati,<br>
+                Guwahati, Assam, INDIA – 781039
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACCOMMODATION -->
+    <section id="accommodation">
+      <div class="container">
+        <div class="section-title"><h3>Accommodation</h3></div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="cardx">
+              <p class="mb-0">
+                Accommodation will be arranged at IIT Guwahati's Institute Guest House, and for student participants, in Hostels for boys and girls.
+                Depending on room availability, accommodations will be provided individually.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- CONTACT -->
-    <section id="contact">
+    <section id="contact" class="soft-bg">
       <div class="container">
-        <div class="section-title">
-          <h3>Contact</h3>
-        </div>
+        <div class="section-title"><h3>Contact</h3></div>
 
         <div class="row">
           <div class="col-lg-7">
@@ -684,16 +666,10 @@
           <div class="col-lg-5 mt-3 mt-lg-0">
             <div class="cardx">
               <h5 class="font-weight-bold">Supported by</h5>
-
               <div class="supported-logos">
-                <div class="logo-box">
-                  <img src="assets/iitg.png" alt="IIT Guwahati">
-                </div>
-                <div class="logo-box">
-                  <img src="assets/parc.jpeg" alt="PARC">
-                </div>
+                <div class="logo-box"><img src="assets/iitg.png" alt="IIT Guwahati"></div>
+                <div class="logo-box"><img src="assets/parc.jpeg" alt="PARC"></div>
               </div>
-
             </div>
           </div>
         </div>
@@ -726,27 +702,23 @@
     });
   </script>
 
+  <!-- Auto-close mobile navbar after clicking a link -->
   <script>
-    // Auto-close mobile navbar after clicking a link
     (function () {
       var nav = document.getElementById("nav");
       if (!nav) return;
-  
+
       var navLinks = nav.querySelectorAll("a.nav-link");
-  
+
       navLinks.forEach(function (link) {
         link.addEventListener("click", function () {
-          // Only close if navbar is currently shown (mobile)
           if (nav.classList.contains("show")) {
-            $(".navbar-toggler").click(); // Bootstrap 4 + jQuery way
+            $(".navbar-toggler").click();
           }
         });
       });
     })();
   </script>
-  
 
 </body>
 </html>
-
-
