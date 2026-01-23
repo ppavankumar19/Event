@@ -147,6 +147,65 @@
       padding: 18px 0;
     }
     footer a{color:#fff;text-decoration:underline;}
+
+
+    /* ===== Topics tiles (like screenshot) ===== */
+    .topics-wrap{max-width:980px;margin:0 auto;}
+    .topic-tile{
+      background:#fff;
+      border-radius:14px;
+      padding:18px 20px;
+      display:flex;
+      align-items:center;
+      gap:14px;
+      box-shadow: 0 10px 24px rgba(0,0,0,.08);
+      margin: 14px 0;
+    }
+    .topic-ico{
+      width:34px;height:34px;
+      border-radius:12px;
+      display:flex;align-items:center;justify-content:center;
+      background:#eaf7e6;
+      color:#78c850;
+      flex:0 0 auto;
+    }
+    .topic-title{font-weight:800;font-size:1.05rem;margin:0;color:#111827;}
+    
+    /* ===== Committee grid (like screenshot) ===== */
+    .committee-title{
+      text-align:center;
+      font-weight:900;
+      color:#1d4ed8;
+      letter-spacing:.5px;
+      margin-bottom: 26px;
+      text-transform:uppercase;
+    }
+    .committee-grid{
+      display:grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap:18px;
+    }
+    .committee-card{
+      background:#fff;
+      border:2px solid #34a853;
+      border-radius:16px;
+      padding:18px 14px;
+      text-align:center;
+      font-weight:800;
+      color:#111827;
+      box-shadow: 0 10px 22px rgba(0,0,0,.08);
+      min-height:82px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    @media (max-width: 1200px){
+      .committee-grid{grid-template-columns: repeat(3, minmax(0, 1fr));}
+    }
+    @media (max-width: 768px){
+      .committee-grid{grid-template-columns: repeat(2, minmax(0, 1fr));}
+    }
+    
   </style>
 </head>
 
@@ -222,10 +281,8 @@
             <a class="btn btn-pill btn-green" target="_blank" rel="noopener" href="https://forms.office.com/r/BB5jGG9Uhp">
               <i class="fa fa-ticket"></i> Registration
             </a>
-            <a class="btn btn-pill btn-green" href="#contact">
-              <i class="fa fa-envelope"></i> Submit via Email
-            </a>
           </div>
+          
   
           <!-- Red announcement line -->
             
@@ -282,30 +339,66 @@
       </div>
     </section>
 
-    <!-- TOPICS -->
-    <section id="topics">
-      <div class="container">
-        <div class="section-title">
-          <h3>Symposium Topics</h3>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-7">
-            <div class="cardx">
-              <ul class="list-clean">
-                <li>Algal biorefinery</li>
-                <li>Organic waste biorefinery</li>
-                <li>Algal speciation and growth</li>
-                <li>Bio-oil extraction technologies</li>
-                <li>Hydrothermal liquefaction</li>
-                <li>Anaerobic co-digestion</li>
-                <li>Thermo-chemical processing</li>
-                <li>Bio-crude oil upgradation</li>
-                <li>Techno-economics and life-cycle analysis</li>
-              </ul>
-              <div class="mt-2"><em>Submissions from other relevant areas are also invited.</em></div>
+   <!-- TOPICS -->
+          <section id="topics">
+            <div class="container">
+              <div class="section-title">
+                <h3>Symposium Topics</h3>
+              </div>
+          
+              <div class="topics-wrap">
+                <div class="topic-tile">
+                  <div class="topic-ico"><i class="fa fa-star"></i></div>
+                  <p class="topic-title">Algal biorefinery</p>
+                </div>
+          
+                <div class="topic-tile">
+                  <div class="topic-ico"><i class="fa fa-star"></i></div>
+                  <p class="topic-title">Organic waste biorefinery</p>
+                </div>
+          
+                <div class="topic-tile">
+                  <div class="topic-ico"><i class="fa fa-star"></i></div>
+                  <p class="topic-title">Algal speciation and growth</p>
+                </div>
+          
+                <div class="topic-tile">
+                  <div class="topic-ico"><i class="fa fa-star"></i></div>
+                  <p class="topic-title">Bio-oil extraction technologies</p>
+                </div>
+          
+                <div class="topic-tile">
+                  <div class="topic-ico"><i class="fa fa-star"></i></div>
+                  <p class="topic-title">Hydrothermal liquefaction</p>
+                </div>
+          
+                <div class="topic-tile">
+                  <div class="topic-ico"><i class="fa fa-star"></i></div>
+                  <p class="topic-title">Anaerobic co-digestion</p>
+                </div>
+          
+                <div class="topic-tile">
+                  <div class="topic-ico"><i class="fa fa-star"></i></div>
+                  <p class="topic-title">Thermo-chemical processing</p>
+                </div>
+          
+                <div class="topic-tile">
+                  <div class="topic-ico"><i class="fa fa-star"></i></div>
+                  <p class="topic-title">Bio-crude oil upgradation</p>
+                </div>
+          
+                <div class="topic-tile">
+                  <div class="topic-ico"><i class="fa fa-star"></i></div>
+                  <p class="topic-title">Techno-economics and life-cycle analysis</p>
+                </div>
+          
+                <div class="mt-3 text-center" style="opacity:.8;">
+                  <em>Submissions from other relevant areas are also invited.</em>
+                </div>
+              </div>
             </div>
-          </div>
+          </section>
+          
 
           <!-- ✅ IITG-style image card -->
           <div class="col-lg-5 mt-3 mt-lg-0">
@@ -434,48 +527,35 @@
       </div>
     </section>
 
-    <!-- COMMITTEE -->
+   <!-- COMMITTEE (IITG style) -->
     <section id="committee" class="soft-bg">
       <div class="container">
-        <div class="section-title">
-          <h3>Local Organizing Committee</h3>
+    
+        <div class="committee-title">Local Organizing Committee</div>
+    
+        <div class="committee-grid">
+          <div class="committee-card">Prof. K. Mohanty</div>
+          <div class="committee-card">Prof. Animesh K Golder</div>
+          <div class="committee-card">Prof. Chandan Das</div>
+          <div class="committee-card">Prof. Ramgopal VS Uppaluri</div>
+          <div class="committee-card">Prof. Arun Goyal</div>
+    
+          <div class="committee-card">Prof. Pankaj Tiwari</div>
+          <div class="committee-card">Prof. K. Pakshirajan</div>
+          <div class="committee-card">Prof. Vijayanand S Moholkar</div>
+          <div class="committee-card">Prof. Debasish Das</div>
+          <div class="committee-card">Prof. Pankaj Kalita</div>
+    
+          <div class="committee-card">Prof. Farrukh Khalid</div>
         </div>
-
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="cardx">
-              <div class="row">
-                <div class="col-md-6">
-                  <ul class="list-clean">
-                    <li>Prof. K. Mohanty</li>
-                    <li>Prof. Animesh K Golder</li>
-                    <li>Prof. Chandan Das</li>
-                    <li>Prof. Ramgopal VS Uppaluri</li>
-                    <li>Prof. Arun Goyal</li>
-                    <li>Prof. Pankaj Tiwari</li>
-                  </ul>
-                </div>
-                <div class="col-md-6">
-                  <ul class="list-clean">
-                    <li>Prof. K. Pakshirajan</li>
-                    <li>Prof. Vijayanand S Moholkar</li>
-                    <li>Prof. Debasish Das</li>
-                    <li>Prof. Pankaj Kalita</li>
-                    <li>Prof. Farrukh Khalid</li>
-                  </ul>
-                </div>
-              </div>
-
-              <hr />
-              <p class="mb-0">
-                <strong>Patron:</strong> Prof. Devendra Jalihal, Director, IIT Guwahati
-              </p>
-            </div>
-          </div>
+    
+        <div class="mt-4 text-center" style="opacity:.9;">
+          <strong>Patron:</strong> Prof. Devendra Jalihal, Director, IIT Guwahati
         </div>
-
+    
       </div>
     </section>
+    
 
     <!-- CONTACT -->
     <section id="contact">
