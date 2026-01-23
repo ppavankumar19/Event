@@ -6,10 +6,8 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta name="description" content="Symposium on Algal and Organic Waste Based Biorefinery, March 21–22, 2026, IIT Guwahati.">
 
-  <!-- Better professional font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <!-- Bootstrap + Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -101,6 +99,7 @@
       font-weight:700;
       padding: .65rem .9rem !important;
       border-radius: 10px;
+      white-space: nowrap;
     }
     .navbar .nav-link:hover{ background: rgba(255,255,255,.08); }
     .navbar-toggler{ border:1px solid rgba(255,255,255,.20) !important; outline:none !important; }
@@ -203,7 +202,7 @@
     .topic-title{font-weight:900;font-size:1.05rem;margin:0;color:#111827;}
     .speaker-text{margin:0;font-weight:900;font-size:1.02rem;color:#111827;}
 
-    /* Scope section alignment */
+    /* Scope */
     .about-center{ max-width: 900px; margin: 0 auto; }
     .about-center p{
       text-align: justify !important;
@@ -213,9 +212,7 @@
       font-size: 1.04rem;
       font-weight: 500;
     }
-    @media (max-width: 768px){
-      .about-center p{ text-align: left !important; }
-    }
+    @media (max-width: 768px){ .about-center p{ text-align: left !important; } }
     .about-center .pill-wrap{
       display:flex;
       flex-wrap:wrap;
@@ -251,11 +248,27 @@
       flex:0 0 auto;
       margin-top:2px;
     }
-    .org-role{font-weight:900;font-size:1.05rem;margin:0;color:#111827;}
-    .org-name{margin:.15rem 0 0 0;font-weight:700;color:#111827;}
-    .org-sub{margin:.2rem 0 0 0;opacity:.85;font-weight:500;}
+    .org-role{
+      font-weight:900;
+      margin:0 0 6px 0;
+      color:#111827;
+      font-size:1.05rem;
+    }
+    .org-name{
+      margin:0;
+      font-weight:700;
+      color:#111827;
+      line-height:1.55;
+    }
+    .org-sub{
+      margin-top:10px;
+      padding-top:12px;
+      border-top:1px dashed rgba(17,24,39,.18);
+    }
+    .org-sub ul{margin:10px 0 0 18px;}
+    .org-sub li{margin-bottom:8px; font-weight:600; color:#111827; line-height:1.55;}
 
-    /* Committee cards */
+    /* Committee members */
     .committee-title{
       text-align:center;
       font-weight:900;
@@ -285,61 +298,25 @@
     }
     @media (max-width: 1200px){ .committee-grid{grid-template-columns: repeat(3, minmax(0, 1fr));} }
     @media (max-width: 768px){ .committee-grid{grid-template-columns: repeat(2, minmax(0, 1fr));} }
-    @media (max-width: 576px){
-      .committee-card{min-height:auto; padding:14px 12px; font-size:.95rem;}
-      .committee-title{font-size:1.15rem;}
-    }
-
-    /* How to reach UI */
-    .reach-grid{
-      display:grid;
-      grid-template-columns: repeat(2, minmax(0,1fr));
-      gap:14px;
-    }
-    @media (max-width:768px){ .reach-grid{grid-template-columns:1fr;} }
-    .reach-tile{
-      background:#fff;
-      border-radius:14px;
-      padding:18px 20px;
-      display:flex;
-      align-items:flex-start;
-      gap:14px;
-      box-shadow: 0 10px 24px rgba(0,0,0,.08);
-    }
-    .reach-ico{
-      width:34px;height:34px;
-      border-radius:12px;
-      display:flex;align-items:center;justify-content:center;
-      background:#eaf7e6;
-      color:#78c850;
-      flex:0 0 auto;
-      margin-top:2px;
-    }
-    .reach-title{font-weight:900;font-size:1.05rem;margin:0;color:#111827;}
-    .reach-text{margin:.25rem 0 0 0;opacity:.9;font-weight:500;line-height:1.75;}
+    @media (max-width: 576px){ .committee-card{min-height:auto; padding:14px 12px; font-size:.95rem;} }
 
     /* Venue map */
-    .map-card{
+    .map-wrap{
       border-radius:16px;
       overflow:hidden;
       border:1px solid rgba(2,6,23,.10);
-      box-shadow: 0 12px 30px rgba(2,6,23,.08);
-      background:#fff;
+      box-shadow: 0 12px 26px rgba(2,6,23,.08);
+      margin-top: 14px;
     }
-    .map-frame{
+    .map-iframe{
       width:100%;
-      height:360px;
+      height:340px;
       border:0;
       display:block;
     }
     @media (max-width:576px){
-      .map-frame{height:300px;}
+      .map-iframe{height:280px;}
     }
-    .venue-info{
-      padding:18px 20px;
-    }
-    .venue-info .line{margin:0; font-weight:700;}
-    .venue-info .muted{opacity:.85; font-weight:600;}
 
     /* Contact */
     #contact .cardx{ padding: 24px; }
@@ -352,7 +329,7 @@
     }
     #contact a{font-weight:800;}
 
-    /* Supported logos fill nicely */
+    /* Supported logos */
     .supported-logos{
       display:grid;
       grid-template-columns: 1fr 1fr;
@@ -394,7 +371,6 @@
 
 <body>
 
-  <!-- NAV -->
   <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
     <div class="container">
       <a class="navbar-brand" href="#intro">Symposium 2026</a>
@@ -415,7 +391,7 @@
           <!-- Committee should go to Organizing Team -->
           <li class="nav-item"><a class="nav-link" href="#organizing-team">Committee</a></li>
 
-          <!-- Separated tabs -->
+          <!-- Separate tabs -->
           <li class="nav-item"><a class="nav-link" href="#howtoreach">How to Reach</a></li>
           <li class="nav-item"><a class="nav-link" href="#venue">Venue</a></li>
           <li class="nav-item"><a class="nav-link" href="#accommodation">Accommodation</a></li>
@@ -426,7 +402,6 @@
     </div>
   </nav>
 
-  <!-- HERO -->
   <header id="intro">
     <div class="container">
       <div class="row justify-content-center">
@@ -474,7 +449,6 @@
 
   <main>
 
-    <!-- ABOUT -->
     <section id="about" class="soft-bg">
       <div class="container">
         <div class="section-title"><h3>Scope of the Event</h3></div>
@@ -503,7 +477,6 @@
       </div>
     </section>
 
-    <!-- TOPICS -->
     <section id="topics">
       <div class="container">
         <div class="section-title"><h3>Symposium Topics</h3></div>
@@ -525,7 +498,6 @@
       </div>
     </section>
 
-    <!-- SPEAKERS -->
     <section id="speakers" class="soft-bg">
       <div class="container">
         <div class="section-title"><h3>Tentative Invited Speakers</h3></div>
@@ -546,7 +518,6 @@
       </div>
     </section>
 
-    <!-- IMPORTANT DATES -->
     <section id="dates">
       <div class="container">
         <div class="section-title"><h3>Important Dates</h3></div>
@@ -572,7 +543,6 @@
       </div>
     </section>
 
-    <!-- REGISTRATION -->
     <section id="registration" class="soft-bg">
       <div class="container">
         <div class="section-title"><h3>Registration</h3></div>
@@ -605,20 +575,18 @@
       </div>
     </section>
 
-    <!-- ORGANIZING TEAM (UI like speakers) -->
+    <!-- ORGANIZING TEAM (Committee nav goes here) -->
     <section id="organizing-team" class="soft-bg">
       <div class="container">
         <div class="section-title"><h3>Organizing Team</h3></div>
 
         <div class="org-wrap">
           <div class="org-grid">
-
             <div class="org-tile">
               <div class="org-ico"><i class="fa fa-star"></i></div>
               <div>
                 <p class="org-role">Patron</p>
-                <p class="org-name">Prof. Devendra Jalihal</p>
-                <p class="org-sub">Director, IIT Guwahati</p>
+                <p class="org-name">Prof. Devendra Jalihal, Director, IIT Guwahati</p>
               </div>
             </div>
 
@@ -626,122 +594,125 @@
               <div class="org-ico"><i class="fa fa-star"></i></div>
               <div>
                 <p class="org-role">Chairperson</p>
-                <p class="org-name">Prof. Rohit Sinha</p>
-                <p class="org-sub">Dean Research and Development, IIT Guwahati</p>
+                <p class="org-name">Prof. Rohit Sinha, Dean Research and Development, IIT Guwahati</p>
               </div>
             </div>
 
-            <div class="org-tile">
+            <div class="org-tile" style="grid-column:1 / -1;">
               <div class="org-ico"><i class="fa fa-star"></i></div>
-              <div>
-                <p class="org-role">Convener</p>
-                <p class="org-name">Dr. Vaibhav V Goud</p>
-                <p class="org-sub">Professor, Dept. of Chemical Engineering &amp; School of Energy Science and Engineering, IIT Guwahati</p>
+              <div style="width:100%;">
+                <p class="org-role">Conveners</p>
+                <div class="org-sub">
+                  <ul class="list-clean mb-0">
+                    <li>Dr. Vaibhav V Goud, Professor, Department of Chemical Engineering and School of Energy Science and Engineering, IIT Guwahati</li>
+                    <li>Dr Ajay K Dalai, Professor, University of Saskatchewan, Canada</li>
+                    <li>Dr Nageswara Rao Peela, Professor, Department of Chemical Engineering, IIT Guwahati</li>
+                  </ul>
+                </div>
               </div>
             </div>
-
-            <div class="org-tile">
-              <div class="org-ico"><i class="fa fa-star"></i></div>
-              <div>
-                <p class="org-role">Convener</p>
-                <p class="org-name">Dr Ajay K Dalai</p>
-                <p class="org-sub">Professor, University of Saskatchewan, Canada</p>
-              </div>
-            </div>
-
-            <div class="org-tile">
-              <div class="org-ico"><i class="fa fa-star"></i></div>
-              <div>
-                <p class="org-role">Convener</p>
-                <p class="org-name">Dr Nageswara Rao Peela</p>
-                <p class="org-sub">Professor, Department of Chemical Engineering, IIT Guwahati</p>
-              </div>
-            </div>
-
-            <div class="org-tile">
-              <div class="org-ico"><i class="fa fa-star"></i></div>
-              <div>
-                <p class="org-role">Organizing Committee</p>
-                <p class="org-name">Committee Members</p>
-                <p class="org-sub" style="margin:0;">
-                  Prof. Vijayanand S Moholkar · Prof. K. Pakshirajan · Prof. Arun Goyal · Prof. K. Mohanty ·
-                  Prof. Animesh K Golder · Prof. Chandan Das · Prof. Ramgopal VS Uppaluri · Prof. Pankaj Tiwari ·
-                  Prof. Debasish Das · Prof. Pankaj Kalita · Prof. Farrukh Khalid
-                </p>
-              </div>
-            </div>
-
           </div>
 
-          <div class="text-center mt-3" style="opacity:.85;">
-            <em>Committee details are based on the official symposium information.</em>
-          </div>
+          <!-- Source from doc -->
+          <!-- Organizing Team section data matches the provided doc. -->
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMITTEE MEMBERS (restored) -->
+    <section id="committee-members">
+      <div class="container">
+        <div class="committee-title">Organizing Committee Members</div>
+
+        <div class="committee-grid">
+          <div class="committee-card">Prof. Vijayanand S Moholkar</div>
+          <div class="committee-card">Prof. K. Pakshirajan</div>
+          <div class="committee-card">Prof. Arun Goyal</div>
+          <div class="committee-card">Prof. K. Mohanty</div>
+          <div class="committee-card">Prof. Animesh K Golder</div>
+
+          <div class="committee-card">Prof. Chandan Das</div>
+          <div class="committee-card">Prof. Ramgopal VS Uppaluri</div>
+          <div class="committee-card">Prof. Pankaj Tiwari</div>
+          <div class="committee-card">Prof. Debasish Das</div>
+          <div class="committee-card">Prof. Pankaj Kalita</div>
+
+          <div class="committee-card">Prof. Farrukh Khalid</div>
         </div>
       </div>
     </section>
 
     <!-- HOW TO REACH -->
-    <section id="howtoreach">
+    <section id="howtoreach" class="soft-bg">
       <div class="container">
         <div class="section-title"><h3>How to Reach</h3></div>
 
-        <div class="reach-grid">
-          <div class="reach-tile">
-            <div class="reach-ico"><i class="fa fa-plane"></i></div>
-            <div>
-              <p class="reach-title">By Air</p>
-              <p class="reach-text">
-                Lokpriya Gopinath Bordoloi International Airport (GAU) to IIT Guwahati is about 22 km.
-                Pre-paid taxi counter is available in the Arrival Lounge (inside Airport). Take a prepaid taxi to reach IIT Guwahati campus.
-              </p>
-            </div>
-          </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="cardx">
+              <div class="kpi">
+                <i class="fa fa-plane"></i>
+                <div>
+                  <strong>By Air</strong><br>
+                  The distance from Lokpriya Gopinath Bordoloi International Airport - Guwahati (GAU) to IIT Guwahati is about 22 kms.
+                  In the Arrival Lounge (inside Airport), there is a pre-paid taxi counter. You can take a prepaid taxi from the airport to reach IIT Guwahati campus.
+                </div>
+              </div>
 
-          <div class="reach-tile">
-            <div class="reach-ico"><i class="fa fa-train"></i></div>
-            <div>
-              <p class="reach-title">By Train</p>
-              <p class="reach-text">
-                Guwahati Railway Station (GHY) to IIT Guwahati is about 18 km.
-                Come out through Platform No.1 exit gate (Panbazar / Lakhtokia side). Limited IIT buses run from Lakhtokia (near Don Bosco School's Church / Cotton College Boys Hostel) to IIT campus.
-                Kamakhya Railway Station (KYQ) is about 13 km; taxi/auto-rickshaws may be needed.
-              </p>
+              <div class="kpi mb-0">
+                <i class="fa fa-train"></i>
+                <div>
+                  <strong>By Train</strong><br>
+                  The distance from Guwahati Railway Station (GHY) to IIT Guwahati is about 18 kms.
+                  If you are arriving at Guwahati Railway Station by rail, come out through Platform No.1 exit gate (Panbazar or Lakhhtokia side).
+                  A limited number of IIT buses run regularly from Guwahati city - Lakhtokia (Near Don Bosco School's Church/ Cotton College Boys Hostel, which is about 0.5 km from the Guwahati Railway Station) to IIT Campus.
+                  The distance from Kamakhya Railway Station (KYQ) to IIT Guwahati is about 13 kms. For commuting from Kamakya Railway Station, you may have to hire taxi or auto-rickshaws.
+                </div>
+              </div>
+
+              <!-- Text taken from the doc -->
+              <!-- :contentReference[oaicite:1]{index=1} -->
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- VENUE (with map) -->
-    <section id="venue" class="soft-bg">
+    <!-- VENUE (separate tab + map) -->
+    <section id="venue">
       <div class="container">
         <div class="section-title"><h3>Venue</h3></div>
 
         <div class="row">
           <div class="col-lg-12">
-            <div class="map-card">
-              <iframe
-                class="map-frame"
-                loading="lazy"
-                allowfullscreen
-                referrerpolicy="no-referrer-when-downgrade"
-                src="https://www.google.com/maps?q=Conference%20Centre%20IIT%20Guwahati%20781039&output=embed">
-              </iframe>
-              <div class="venue-info">
-                <p class="line">Conference Centre,</p>
-                <p class="line">Indian Institute of Technology Guwahati,</p>
-                <p class="line">Guwahati, Assam, INDIA – 781039</p>
-                <p class="muted mb-0">Tip: Tap the map to open directions in Google Maps.</p>
+            <div class="cardx">
+              <p class="mb-2" style="font-weight:700;">
+                Conference Centre,<br>
+                Indian Institute of Technology Guwahati,<br>
+                Guwahati, Assam<br>
+                INDIA – 781039
+              </p>
+
+              <div class="map-wrap" aria-label="Map to IIT Guwahati Conference Centre">
+                <!-- If you want exact Conference Centre pin, send me the Google Maps share link and I’ll replace it. -->
+                <iframe
+                  class="map-iframe"
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  src="https://www.google.com/maps?q=IIT%20Guwahati%20Conference%20Centre&output=embed">
+                </iframe>
               </div>
+
+              <!-- Venue address from the doc -->
+              <!-- :contentReference[oaicite:2]{index=2} -->
             </div>
           </div>
         </div>
-
       </div>
     </section>
 
     <!-- ACCOMMODATION -->
-    <section id="accommodation">
+    <section id="accommodation" class="soft-bg">
       <div class="container">
         <div class="section-title"><h3>Accommodation</h3></div>
 
@@ -752,6 +723,7 @@
                 Accommodation will be arranged at IIT Guwahati's Institute Guest House, and for student participants, in Hostels for boys and girls.
                 Depending on room availability, accommodations will be provided individually.
               </p>
+              <!-- :contentReference[oaicite:3]{index=3} -->
             </div>
           </div>
         </div>
@@ -759,7 +731,7 @@
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="soft-bg">
+    <section id="contact">
       <div class="container">
         <div class="section-title"><h3>Contact</h3></div>
 
@@ -810,12 +782,11 @@
     </div>
   </footer>
 
-  <!-- JS -->
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Smooth scroll with navbar offset -->
   <script>
+    // Smooth scroll with navbar offset
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
       a.addEventListener('click', function(e){
         const id = this.getAttribute('href');
@@ -826,10 +797,8 @@
         window.scrollTo({ top: el.offsetTop - 80, behavior: "smooth" });
       });
     });
-  </script>
 
-  <!-- Auto-close mobile navbar after clicking a link -->
-  <script>
+    // Auto-close mobile navbar after clicking a link (Bootstrap 4)
     (function () {
       var nav = document.getElementById("nav");
       if (!nav) return;
