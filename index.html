@@ -224,14 +224,36 @@
       margin-top: 16px;
     }
 
-    /* Organizing + committee */
-    .subhead{
-      font-weight: 900;
-      font-size: 1.25rem;
-      margin-bottom: 10px;
-      letter-spacing: -.01em;
+    /* Organizing team UI like speakers */
+    .org-wrap{max-width:980px;margin:0 auto;}
+    .org-grid{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap:14px;
     }
-    .muted{opacity:.85;}
+    @media (max-width:768px){ .org-grid{grid-template-columns:1fr;} }
+    .org-tile{
+      background:#fff;
+      border-radius:14px;
+      padding:18px 20px;
+      display:flex;
+      align-items:flex-start;
+      gap:14px;
+      box-shadow: 0 10px 24px rgba(0,0,0,.08);
+      margin:0;
+    }
+    .org-ico{
+      width:34px;height:34px;
+      border-radius:12px;
+      display:flex;align-items:center;justify-content:center;
+      background:#eaf7e6;
+      color:#78c850;
+      flex:0 0 auto;
+      margin-top:2px;
+    }
+    .org-role{font-weight:900;font-size:1.05rem;margin:0;color:#111827;}
+    .org-name{margin:.15rem 0 0 0;font-weight:700;color:#111827;}
+    .org-sub{margin:.2rem 0 0 0;opacity:.85;font-weight:500;}
 
     /* Committee cards */
     .committee-title{
@@ -267,6 +289,57 @@
       .committee-card{min-height:auto; padding:14px 12px; font-size:.95rem;}
       .committee-title{font-size:1.15rem;}
     }
+
+    /* How to reach UI */
+    .reach-grid{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap:14px;
+    }
+    @media (max-width:768px){ .reach-grid{grid-template-columns:1fr;} }
+    .reach-tile{
+      background:#fff;
+      border-radius:14px;
+      padding:18px 20px;
+      display:flex;
+      align-items:flex-start;
+      gap:14px;
+      box-shadow: 0 10px 24px rgba(0,0,0,.08);
+    }
+    .reach-ico{
+      width:34px;height:34px;
+      border-radius:12px;
+      display:flex;align-items:center;justify-content:center;
+      background:#eaf7e6;
+      color:#78c850;
+      flex:0 0 auto;
+      margin-top:2px;
+    }
+    .reach-title{font-weight:900;font-size:1.05rem;margin:0;color:#111827;}
+    .reach-text{margin:.25rem 0 0 0;opacity:.9;font-weight:500;line-height:1.75;}
+
+    /* Venue map */
+    .map-card{
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid rgba(2,6,23,.10);
+      box-shadow: 0 12px 30px rgba(2,6,23,.08);
+      background:#fff;
+    }
+    .map-frame{
+      width:100%;
+      height:360px;
+      border:0;
+      display:block;
+    }
+    @media (max-width:576px){
+      .map-frame{height:300px;}
+    }
+    .venue-info{
+      padding:18px 20px;
+    }
+    .venue-info .line{margin:0; font-weight:700;}
+    .venue-info .muted{opacity:.85; font-weight:600;}
 
     /* Contact */
     #contact .cardx{ padding: 24px; }
@@ -342,8 +415,9 @@
           <!-- Committee should go to Organizing Team -->
           <li class="nav-item"><a class="nav-link" href="#organizing-team">Committee</a></li>
 
-          <!-- New tabs -->
-          <li class="nav-item"><a class="nav-link" href="#howtoreach">How to Reach / Venue</a></li>
+          <!-- Separated tabs -->
+          <li class="nav-item"><a class="nav-link" href="#howtoreach">How to Reach</a></li>
+          <li class="nav-item"><a class="nav-link" href="#venue">Venue</a></li>
           <li class="nav-item"><a class="nav-link" href="#accommodation">Accommodation</a></li>
 
           <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
@@ -531,86 +605,138 @@
       </div>
     </section>
 
-    <!-- ORGANIZING TEAM (Committee nav goes here) -->
+    <!-- ORGANIZING TEAM (UI like speakers) -->
     <section id="organizing-team" class="soft-bg">
       <div class="container">
         <div class="section-title"><h3>Organizing Team</h3></div>
 
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="cardx">
-              <div class="subhead">Patron</div>
-              <p class="mb-3">Prof. Devendra Jalihal, Director, IIT Guwahati</p>
+        <div class="org-wrap">
+          <div class="org-grid">
 
-              <div class="subhead">Chairperson</div>
-              <p class="mb-3">Prof. Rohit Sinha, Dean Research and Development, IIT Guwahati</p>
+            <div class="org-tile">
+              <div class="org-ico"><i class="fa fa-star"></i></div>
+              <div>
+                <p class="org-role">Patron</p>
+                <p class="org-name">Prof. Devendra Jalihal</p>
+                <p class="org-sub">Director, IIT Guwahati</p>
+              </div>
+            </div>
 
-              <div class="subhead">Conveners</div>
-              <ul class="list-clean mb-0">
-                <li>Dr. Vaibhav V Goud, Professor, Department of Chemical Engineering and School of Energy Science and Engineering, IIT Guwahati</li>
-                <li>Dr Ajay K Dalai, Professor, University of Saskatchewan, Canada</li>
-                <li>Dr Nageswara Rao Peela, Professor, Department of Chemical Engineering, IIT Guwahati</li>
-              </ul>
+            <div class="org-tile">
+              <div class="org-ico"><i class="fa fa-star"></i></div>
+              <div>
+                <p class="org-role">Chairperson</p>
+                <p class="org-name">Prof. Rohit Sinha</p>
+                <p class="org-sub">Dean Research and Development, IIT Guwahati</p>
+              </div>
+            </div>
+
+            <div class="org-tile">
+              <div class="org-ico"><i class="fa fa-star"></i></div>
+              <div>
+                <p class="org-role">Convener</p>
+                <p class="org-name">Dr. Vaibhav V Goud</p>
+                <p class="org-sub">Professor, Dept. of Chemical Engineering &amp; School of Energy Science and Engineering, IIT Guwahati</p>
+              </div>
+            </div>
+
+            <div class="org-tile">
+              <div class="org-ico"><i class="fa fa-star"></i></div>
+              <div>
+                <p class="org-role">Convener</p>
+                <p class="org-name">Dr Ajay K Dalai</p>
+                <p class="org-sub">Professor, University of Saskatchewan, Canada</p>
+              </div>
+            </div>
+
+            <div class="org-tile">
+              <div class="org-ico"><i class="fa fa-star"></i></div>
+              <div>
+                <p class="org-role">Convener</p>
+                <p class="org-name">Dr Nageswara Rao Peela</p>
+                <p class="org-sub">Professor, Department of Chemical Engineering, IIT Guwahati</p>
+              </div>
+            </div>
+
+            <div class="org-tile">
+              <div class="org-ico"><i class="fa fa-star"></i></div>
+              <div>
+                <p class="org-role">Organizing Committee</p>
+                <p class="org-name">Committee Members</p>
+                <p class="org-sub" style="margin:0;">
+                  Prof. Vijayanand S Moholkar · Prof. K. Pakshirajan · Prof. Arun Goyal · Prof. K. Mohanty ·
+                  Prof. Animesh K Golder · Prof. Chandan Das · Prof. Ramgopal VS Uppaluri · Prof. Pankaj Tiwari ·
+                  Prof. Debasish Das · Prof. Pankaj Kalita · Prof. Farrukh Khalid
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="text-center mt-3" style="opacity:.85;">
+            <em>Committee details are based on the official symposium information.</em>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW TO REACH -->
+    <section id="howtoreach">
+      <div class="container">
+        <div class="section-title"><h3>How to Reach</h3></div>
+
+        <div class="reach-grid">
+          <div class="reach-tile">
+            <div class="reach-ico"><i class="fa fa-plane"></i></div>
+            <div>
+              <p class="reach-title">By Air</p>
+              <p class="reach-text">
+                Lokpriya Gopinath Bordoloi International Airport (GAU) to IIT Guwahati is about 22 km.
+                Pre-paid taxi counter is available in the Arrival Lounge (inside Airport). Take a prepaid taxi to reach IIT Guwahati campus.
+              </p>
+            </div>
+          </div>
+
+          <div class="reach-tile">
+            <div class="reach-ico"><i class="fa fa-train"></i></div>
+            <div>
+              <p class="reach-title">By Train</p>
+              <p class="reach-text">
+                Guwahati Railway Station (GHY) to IIT Guwahati is about 18 km.
+                Come out through Platform No.1 exit gate (Panbazar / Lakhtokia side). Limited IIT buses run from Lakhtokia (near Don Bosco School's Church / Cotton College Boys Hostel) to IIT campus.
+                Kamakhya Railway Station (KYQ) is about 13 km; taxi/auto-rickshaws may be needed.
+              </p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- COMMITTEE MEMBERS -->
-    <section id="committee-members">
+    <!-- VENUE (with map) -->
+    <section id="venue" class="soft-bg">
       <div class="container">
-        <div class="committee-title">Organizing Committee Members</div>
-
-        <div class="committee-grid">
-          <div class="committee-card">Prof. Vijayanand S Moholkar</div>
-          <div class="committee-card">Prof. K. Pakshirajan</div>
-          <div class="committee-card">Prof. Arun Goyal</div>
-          <div class="committee-card">Prof. K. Mohanty</div>
-          <div class="committee-card">Prof. Animesh K Golder</div>
-
-          <div class="committee-card">Prof. Chandan Das</div>
-          <div class="committee-card">Prof. Ramgopal VS Uppaluri</div>
-          <div class="committee-card">Prof. Pankaj Tiwari</div>
-          <div class="committee-card">Prof. Debasish Das</div>
-          <div class="committee-card">Prof. Pankaj Kalita</div>
-
-          <div class="committee-card">Prof. Farrukh Khalid</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- HOW TO REACH + VENUE -->
-    <section id="howtoreach" class="soft-bg">
-      <div class="container">
-        <div class="section-title"><h3>How to Reach & Venue</h3></div>
+        <div class="section-title"><h3>Venue</h3></div>
 
         <div class="row">
           <div class="col-lg-12">
-            <div class="cardx">
-              <div class="subhead">How to Reach</div>
-
-              <p class="mb-3">
-                <strong>By Air:</strong> The distance from Lokpriya Gopinath Bordoloi International Airport (GAU) to IIT Guwahati is about 22 km.
-                A pre-paid taxi counter is available in the Arrival Lounge (inside Airport). You can take a prepaid taxi to reach IIT Guwahati campus.
-              </p>
-
-              <p class="mb-4">
-                <strong>By Train:</strong> The distance from Guwahati Railway Station (GHY) to IIT Guwahati is about 18 km.
-                If arriving at GHY, come out through Platform No.1 exit gate (Panbazar / Lakhtokia side).
-                Limited IIT buses run from Lakhtokia (near Don Bosco School's Church / Cotton College Boys Hostel) to IIT campus.
-                Kamakhya Railway Station (KYQ) is about 13 km from IIT Guwahati; for commuting you may need taxi/auto-rickshaw.
-              </p>
-
-              <div class="subhead">Venue</div>
-              <p class="mb-0">
-                Conference Centre,<br>
-                Indian Institute of Technology Guwahati,<br>
-                Guwahati, Assam, INDIA – 781039
-              </p>
+            <div class="map-card">
+              <iframe
+                class="map-frame"
+                loading="lazy"
+                allowfullscreen
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps?q=Conference%20Centre%20IIT%20Guwahati%20781039&output=embed">
+              </iframe>
+              <div class="venue-info">
+                <p class="line">Conference Centre,</p>
+                <p class="line">Indian Institute of Technology Guwahati,</p>
+                <p class="line">Guwahati, Assam, INDIA – 781039</p>
+                <p class="muted mb-0">Tip: Tap the map to open directions in Google Maps.</p>
+              </div>
             </div>
           </div>
         </div>
+
       </div>
     </section>
 
