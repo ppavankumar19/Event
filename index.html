@@ -158,24 +158,6 @@
       }
     }
 
-    /* Dropdown (More) */
-    .dropdown-menu{
-      border-radius: 14px;
-      overflow:hidden;
-      border: 1px solid rgba(2,6,23,.08);
-      box-shadow: 0 18px 40px rgba(2,6,23,.22);
-      padding: 6px;
-      min-width: 240px;
-    }
-    .dropdown-item{
-      font-weight:800;
-      border-radius: 10px;
-      padding: 10px 12px;
-    }
-    .dropdown-item:hover{
-      background:#f1f5f9;
-    }
-
     /* ===================== HERO ===================== */
     #intro{
       min-height: 92vh;
@@ -519,28 +501,12 @@
           <!-- Committee goes to Organizing Team -->
           <li class="nav-item"><a class="nav-link" href="#organizing-team">Committee</a></li>
 
-          <!-- Keep key items visible -->
           <li class="nav-item"><a class="nav-link" href="#howtoreach">How to Reach</a></li>
           <li class="nav-item"><a class="nav-link" href="#venue">Venue</a></li>
 
-          <!-- Put less-used items inside dropdown on tighter widths (works even on desktop) -->
-          <li class="nav-item dropdown d-none d-lg-block" id="moreDropdownWrap">
-            <a class="nav-link dropdown-toggle" href="#" id="moreDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              More
-            </a>
-            <div class="dropdown-menu" aria-labelledby="moreDropdown">
-              <a class="dropdown-item" href="#accommodation"><i class="fa fa-bed"></i> Accommodation</a>
-              <a class="dropdown-item" href="#contact"><i class="fa fa-envelope"></i> Contact</a>
-            </div>
-          </li>
-
-          <!-- On large screens when space is enough we also show direct links (JS will toggle) -->
-          <li class="nav-item d-lg-none"><a class="nav-link" href="#accommodation">Accommodation</a></li>
-          <li class="nav-item d-lg-none"><a class="nav-link" href="#contact">Contact</a></li>
-
-          <!-- Desktop direct links (JS toggles based on space) -->
-          <li class="nav-item d-none d-lg-block" id="accommodationDirect"><a class="nav-link" href="#accommodation">Accommodation</a></li>
-          <li class="nav-item d-none d-lg-block" id="contactDirect"><a class="nav-link" href="#contact">Contact</a></li>
+          <!-- More removed; keep these always visible -->
+          <li class="nav-item"><a class="nav-link" href="#accommodation">Accommodation</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
 
         </ul>
       </div>
@@ -832,7 +798,7 @@
             <div class="reach-card">
               <div class="reach-head">
                 <div class="reach-ico"><i class="fa fa-train"></i></div>
-                <h4 classjF class="reach-title">By Train</h4>
+                <h4 class="reach-title">By Train</h4>
               </div>
 
               <p class="mb-2">
@@ -881,7 +847,6 @@
             </div>
           </div>
 
-          <!-- Map embed -->
           <iframe
             class="map-embed"
             loading="lazy"
@@ -994,9 +959,8 @@
       }
 
       // Close after clicking any nav link (mobile)
-      nav.querySelectorAll("a.nav-link, .dropdown-item").forEach(function(link){
+      nav.querySelectorAll("a.nav-link").forEach(function(link){
         link.addEventListener("click", function(){
-          // only close if mobile open
           closeNav();
         });
       });
@@ -1008,48 +972,6 @@
         var clickedToggler = toggler.contains(e.target);
         if (!clickedInsideNav && !clickedToggler) closeNav();
       }, true);
-
-      // Desktop: keep Contact/Accommodation visible if enough space; otherwise move to More
-      function updateNavFit(){
-        var moreWrap = document.getElementById("moreDropdownWrap");
-        var acc = document.getElementById("accommodationDirect");
-        var con = document.getElementById("contactDirect");
-        if(!moreWrap || !acc || !con) return;
-
-        var navBar = document.querySelector(".navbar .container");
-        var collapse = document.getElementById("nav");
-        if(!navBar || !collapse) return;
-
-        // Only on lg+ screens
-        if (window.innerWidth < 992){
-          // On mobile, show direct links (inside collapse list)
-          moreWrap.classList.add("d-none");
-          return;
-        }
-
-        // Show dropdown by default
-        moreWrap.classList.remove("d-none");
-        // Try to show direct links; if overflow happens, hide them
-        acc.classList.remove("d-none");
-        con.classList.remove("d-none");
-
-        // If nav overflows horizontally, hide direct links (keep in More)
-        // Use scrollWidth vs clientWidth on collapse row
-        var ul = collapse.querySelector(".navbar-nav");
-        if(!ul) return;
-
-        // Temporarily allow layout
-        var overflow = ul.scrollWidth > ul.clientWidth + 4;
-
-        if (overflow){
-          acc.classList.add("d-none");
-          con.classList.add("d-none");
-        }
-      }
-
-      window.addEventListener("resize", updateNavFit);
-      window.addEventListener("load", updateNavFit);
-      setTimeout(updateNavFit, 200);
     })();
   </script>
 
