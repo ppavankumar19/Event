@@ -205,6 +205,29 @@
     @media (max-width: 768px){
       .committee-grid{grid-template-columns: repeat(2, minmax(0, 1fr));}
     }
+
+    /* Speakers tiles (reuse Topics style) */
+    .speakers-wrap{max-width:980px;margin:0 auto;}
+    .speaker-tile{
+      background:#fff;
+      border-radius:14px;
+      padding:18px 20px;
+      display:flex;
+      align-items:center;
+      gap:14px;
+      box-shadow: 0 10px 24px rgba(0,0,0,.08);
+      margin: 14px 0;
+    }
+    .speaker-ico{
+      width:34px;height:34px;
+      border-radius:12px;
+      display:flex;align-items:center;justify-content:center;
+      background:#eaf7e6;
+      color:#78c850;
+      flex:0 0 auto;
+    }
+    .speaker-text{margin:0;font-weight:800;font-size:1.02rem;color:#111827;}
+    
     
   </style>
 </head>
@@ -410,40 +433,62 @@
       </div>
     </section>
 
-    <!-- SPEAKERS -->
-    <section id="speakers" class="soft-bg">
-      <div class="container">
-        <div class="section-title">
-          <h3>Tentative Invited Speakers</h3>
-        </div>
+   <!-- SPEAKERS (tile style like Topics) -->
+<section id="speakers" class="soft-bg">
+  <div class="container">
+    <div class="section-title">
+      <h3>Tentative Invited Speakers</h3>
+    </div>
 
-        <!-- ✅ banner image -->
-        <div class="mb-4">
-          <div class="cardx p-0 overflow-hidden">
-            <img src="assets/speakers.jpg" alt="Invited Speakers" class="img-fluid">
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="cardx">
-              <ul class="list-clean mb-0">
-                <li>Prof. Ajay Dalai, University of Saskatchewan</li>
-                <li>Prof. K Mohanty, IIT Guwahati</li>
-                <li>Prof. Dhanapati Deka, Tezpur University</li>
-                <li>Dr. Thallada Bhaskar, AMPRI Bhopal and IIP Dehradun</li>
-                <li>Prof. Vaibhav V Goud, IIT Guwahati</li>
-                <li>Dr. Garima Srivastava, Banasthali Vidyapith, Banasthali</li>
-                <li>Dr. Debaprasad Shee, IIT Hyderabad</li>
-                <li>Prof. Satya Narayan Naik, IIT Delhi</li>
-                <li>Prof. Nageswara Rao Peela, IIT Guwahati</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
+    <div class="speakers-wrap">
+      <div class="speaker-tile">
+        <div class="speaker-ico"><i class="fa fa-star"></i></div>
+        <p class="speaker-text">Prof. Ajay Dalai, University of Saskatchewan</p>
       </div>
-    </section>
+
+      <div class="speaker-tile">
+        <div class="speaker-ico"><i class="fa fa-star"></i></div>
+        <p class="speaker-text">Prof. K Mohanty, IIT Guwahati</p>
+      </div>
+
+      <div class="speaker-tile">
+        <div class="speaker-ico"><i class="fa fa-star"></i></div>
+        <p class="speaker-text">Prof. Dhanapati Deka, Tezpur University</p>
+      </div>
+
+      <div class="speaker-tile">
+        <div class="speaker-ico"><i class="fa fa-star"></i></div>
+        <p class="speaker-text">Dr. Thallada Bhaskar, AMPRI Bhopal and IIP Dehradun</p>
+      </div>
+
+      <div class="speaker-tile">
+        <div class="speaker-ico"><i class="fa fa-star"></i></div>
+        <p class="speaker-text">Prof. Vaibhav V Goud, IIT Guwahati</p>
+      </div>
+
+      <div class="speaker-tile">
+        <div class="speaker-ico"><i class="fa fa-star"></i></div>
+        <p class="speaker-text">Dr. Garima Srivastava, Banasthali Vidyapith, Banasthali</p>
+      </div>
+
+      <div class="speaker-tile">
+        <div class="speaker-ico"><i class="fa fa-star"></i></div>
+        <p class="speaker-text">Dr. Debaprasad Shee, IIT Hyderabad</p>
+      </div>
+
+      <div class="speaker-tile">
+        <div class="speaker-ico"><i class="fa fa-star"></i></div>
+        <p class="speaker-text">Prof. Satya Narayan Naik, IIT Delhi</p>
+      </div>
+
+      <div class="speaker-tile">
+        <div class="speaker-ico"><i class="fa fa-star"></i></div>
+        <p class="speaker-text">Prof. Nageswara Rao Peela, IIT Guwahati</p>
+      </div>
+    </div>
+
+  </div>
+</section>
 
     <!-- IMPORTANT DATES -->
     <section id="dates">
