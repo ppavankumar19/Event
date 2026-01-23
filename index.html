@@ -30,8 +30,6 @@
       line-height:1.6;
       background:#fff;
     }
-
-    /* Bootstrap container override */
     .container{max-width:1100px;}
 
     section{padding:55px 0;}
@@ -88,12 +86,12 @@
       font-weight:800;
       font-size:.95rem;
       margin: 6px 8px 0 0;
+      white-space: nowrap;
     }
 
-    /* ===================== NAVBAR (Fix contact missing at 100%) ===================== */
+    /* ===================== NAVBAR FIXES ===================== */
     .navbar{
-      width:100%;
-      background: rgba(10,18,28,.82) !important;
+      background: rgba(10,18,28,.86) !important;
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(255,255,255,.10);
@@ -102,51 +100,83 @@
       font-weight:900;
       letter-spacing:.3px;
       color:#fff !important;
-      white-space:nowrap;
+      margin-right: 14px;
+      white-space: nowrap;
+    }
+    /* Brand + nav aligned left; no big left empty space */
+    .navbar .container{
+      display:flex;
+      align-items:center;
+      justify-content:flex-start;
     }
 
-    /* Make navbar items fit better on desktop 100% */
+    /* Keep desktop nav in one line and avoid dropping */
     .navbar-nav{
-      flex-wrap:wrap; /* allows wrapping instead of hiding */
-      gap:2px;
+      display:flex;
+      flex-wrap: nowrap;
+      gap: 6px;
     }
+
     .navbar .nav-link{
       color: rgba(255,255,255,.92) !important;
       font-weight:800;
-      padding: .55rem .72rem !important; /* slightly smaller so Contact won't disappear */
+      padding: .55rem .7rem !important;
       border-radius: 10px;
-      white-space:nowrap;
+      white-space: nowrap;
       font-size: .95rem;
     }
     .navbar .nav-link:hover{ background: rgba(255,255,255,.08); }
 
-    /* If screen is tight, allow horizontal scroll instead of hiding items */
-    @media (min-width: 992px){
-      .navbar .navbar-collapse{
-        overflow-x:auto;
-        scrollbar-width: thin;
-      }
-      .navbar .navbar-collapse::-webkit-scrollbar{ height:6px; }
-    }
-
     .navbar-toggler{
       border:1px solid rgba(255,255,255,.20) !important;
       outline:none !important;
+      margin-left:auto;
     }
-    .navbar-collapse{padding-top:10px;}
 
+    /* On large screens: push menu right a bit but no empty left block */
+    @media (min-width: 992px){
+      .navbar-collapse{
+        display:flex !important;
+        flex-grow:1;
+      }
+      .navbar-nav{
+        margin-left: 8px !important; /* keep close to brand */
+      }
+    }
+
+    /* Mobile dropdown panel */
     @media (max-width: 991px){
       .navbar-collapse{
-        background: rgba(10,18,28,.92);
+        background: rgba(10,18,28,.94);
         border: 1px solid rgba(255,255,255,.10);
         border-radius: 14px;
         padding: 12px;
         margin-top: 10px;
       }
-      .navbar .nav-link{padding:.7rem .9rem !important;}
+      .navbar-nav{
+        flex-wrap: wrap;
+      }
     }
 
-    /* Hero */
+    /* Dropdown (More) */
+    .dropdown-menu{
+      border-radius: 14px;
+      overflow:hidden;
+      border: 1px solid rgba(2,6,23,.08);
+      box-shadow: 0 18px 40px rgba(2,6,23,.22);
+      padding: 6px;
+      min-width: 240px;
+    }
+    .dropdown-item{
+      font-weight:800;
+      border-radius: 10px;
+      padding: 10px 12px;
+    }
+    .dropdown-item:hover{
+      background:#f1f5f9;
+    }
+
+    /* ===================== HERO ===================== */
     #intro{
       min-height: 92vh;
       display:flex;
@@ -205,16 +235,16 @@
       #intro img{width:92px !important;height:92px !important;}
     }
 
-    /* Topics + Speakers + Organizing Team (same UI) */
-    .tiles-wrap{max-width:980px;margin:0 auto;}
-    .tiles-grid{
+    /* Topics + Speakers */
+    .topics-wrap, .speakers-wrap{max-width:980px;margin:0 auto;}
+    .topics-grid, .speakers-grid{
       display:grid;
       grid-template-columns: repeat(2, minmax(0,1fr));
       gap:14px;
     }
-    @media (max-width:768px){ .tiles-grid{grid-template-columns:1fr;} }
+    @media (max-width:768px){ .topics-grid, .speakers-grid{grid-template-columns:1fr;} }
 
-    .tile{
+    .topic-tile, .speaker-tile{
       background:#fff;
       border-radius:14px;
       padding:18px 20px;
@@ -222,8 +252,9 @@
       align-items:center;
       gap:14px;
       box-shadow: 0 10px 24px rgba(0,0,0,.08);
+      margin:0;
     }
-    .tile-ico{
+    .topic-ico, .speaker-ico{
       width:34px;height:34px;
       border-radius:12px;
       display:flex;align-items:center;justify-content:center;
@@ -231,10 +262,10 @@
       color:#78c850;
       flex:0 0 auto;
     }
-    .tile-text{margin:0;font-weight:900;font-size:1.02rem;color:#111827;}
-    .tile-sub{margin:0;font-weight:600;font-size:.98rem;color:#334155;line-height:1.35;}
+    .topic-title{font-weight:900;font-size:1.05rem;margin:0;color:#111827;}
+    .speaker-text{margin:0;font-weight:900;font-size:1.02rem;color:#111827;}
 
-    /* Scope section alignment */
+    /* Scope */
     .about-center{ max-width: 900px; margin: 0 auto; }
     .about-center p{
       text-align: justify !important;
@@ -253,6 +284,46 @@
       justify-content:center;
       gap:10px;
       margin-top: 16px;
+    }
+
+    /* ===================== ORGANIZING TEAM (like speakers UI) ===================== */
+    .org-wrap{max-width:980px;margin:0 auto;}
+    .org-grid{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap:14px;
+    }
+    @media (max-width:768px){ .org-grid{grid-template-columns:1fr;} }
+    .org-tile{
+      background:#fff;
+      border-radius:14px;
+      padding:18px 20px;
+      display:flex;
+      align-items:flex-start;
+      gap:14px;
+      box-shadow: 0 10px 24px rgba(0,0,0,.08);
+      margin:0;
+    }
+    .org-ico{
+      width:34px;height:34px;
+      border-radius:12px;
+      display:flex;align-items:center;justify-content:center;
+      background:#eaf7e6;
+      color:#22c55e;
+      flex:0 0 auto;
+      margin-top:2px;
+    }
+    .org-title{
+      font-weight:900;
+      font-size:1.05rem;
+      margin:0 0 4px;
+      color:#111827;
+    }
+    .org-desc{
+      margin:0;
+      font-weight:600;
+      color:#334155;
+      line-height:1.6;
     }
 
     /* Committee cards */
@@ -285,18 +356,104 @@
     }
     @media (max-width: 1200px){ .committee-grid{grid-template-columns: repeat(3, minmax(0, 1fr));} }
     @media (max-width: 768px){ .committee-grid{grid-template-columns: repeat(2, minmax(0, 1fr));} }
-
-    /* Venue map */
-    .map-wrap{
-      border-radius:16px;
-      overflow:hidden;
-      border: 1px solid rgba(2,6,23,.08);
-      box-shadow: 0 10px 24px rgba(2,6,23,.10);
-      height: 360px;
+    @media (max-width: 576px){
+      .committee-card{min-height:auto; padding:14px 12px; font-size:.95rem;}
+      .committee-title{font-size:1.15rem;}
     }
-    .map-wrap iframe{width:100%; height:100%; border:0;}
 
-    /* Supported logos fill nicely */
+    /* ===================== HOW TO REACH UI ===================== */
+    .reach-wrap{max-width:980px;margin:0 auto;}
+    .reach-grid{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap:14px;
+    }
+    @media (max-width:768px){ .reach-grid{grid-template-columns:1fr;} }
+
+    .reach-card{
+      background:#fff;
+      border-radius:16px;
+      padding:18px 18px;
+      border: 1px solid rgba(2,6,23,.08);
+      box-shadow: 0 10px 24px rgba(0,0,0,.08);
+      height:100%;
+    }
+    .reach-head{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-bottom:10px;
+    }
+    .reach-ico{
+      width:38px;height:38px;
+      border-radius:14px;
+      display:flex;align-items:center;justify-content:center;
+      background:#eaf7e6;
+      color:#22c55e;
+      flex:0 0 auto;
+      font-size:18px;
+    }
+    .reach-title{
+      margin:0;
+      font-weight:900;
+      font-size:1.12rem;
+      color:#0f172a;
+    }
+    .chip-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin: 10px 0 0;
+    }
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius:999px;
+      border: 1px solid rgba(85,102,26,.22);
+      background:#f6f8f1;
+      font-weight:800;
+      font-size:.92rem;
+      color:#0f172a;
+      white-space:nowrap;
+    }
+
+    /* ===================== VENUE (map) ===================== */
+    .venue-grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:14px;
+      max-width:980px;
+      margin:0 auto;
+      align-items:stretch;
+    }
+    @media (max-width: 991px){
+      .venue-grid{grid-template-columns:1fr;}
+    }
+    .map-embed{
+      width:100%;
+      height:340px;
+      border:0;
+      border-radius:16px;
+      box-shadow: 0 10px 24px rgba(0,0,0,.08);
+    }
+    @media (max-width: 576px){
+      .map-embed{height:280px;}
+    }
+
+    /* Contact */
+    #contact .cardx{ padding: 24px; }
+    #contact h5{ font-weight: 900; letter-spacing: -.01em; margin-bottom: 12px; }
+    #contact p, #contact li{
+      font-size: 1.02rem;
+      line-height: 1.75;
+      font-weight: 500;
+      color:#0f172a;
+    }
+    #contact a{font-weight:800;}
+
+    /* Supported logos */
     .supported-logos{
       display:grid;
       grid-template-columns: 1fr 1fr;
@@ -317,13 +474,15 @@
     }
     .supported-logos img{
       max-width: 100%;
-      max-height: 130px;
+      max-height: 140px;
       width: auto;
       height: auto;
       object-fit: contain;
     }
     @media (max-width: 576px){
       .supported-logos{ grid-template-columns: 1fr; }
+      .supported-logos .logo-box{ min-height: 150px; }
+      .supported-logos img{ max-height: 130px; }
     }
 
     footer{
@@ -339,6 +498,7 @@
   <!-- NAV -->
   <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
     <div class="container">
+
       <a class="navbar-brand" href="#intro">Symposium 2026</a>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav"
@@ -347,22 +507,41 @@
       </button>
 
       <div class="collapse navbar-collapse" id="nav">
-        <ul class="navbar-nav ml-auto">
+        <!-- LEFT aligned nav so no empty space -->
+        <ul class="navbar-nav">
+
           <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
           <li class="nav-item"><a class="nav-link" href="#topics">Topics</a></li>
           <li class="nav-item"><a class="nav-link" href="#speakers">Invited Speakers</a></li>
           <li class="nav-item"><a class="nav-link" href="#dates">Important Dates</a></li>
           <li class="nav-item"><a class="nav-link" href="#registration">Registration</a></li>
 
-          <!-- Committee goes to organizing team -->
+          <!-- Committee goes to Organizing Team -->
           <li class="nav-item"><a class="nav-link" href="#organizing-team">Committee</a></li>
 
-          <!-- Separated -->
+          <!-- Keep key items visible -->
           <li class="nav-item"><a class="nav-link" href="#howtoreach">How to Reach</a></li>
           <li class="nav-item"><a class="nav-link" href="#venue">Venue</a></li>
-          <li class="nav-item"><a class="nav-link" href="#accommodation">Accommodation</a></li>
 
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <!-- Put less-used items inside dropdown on tighter widths (works even on desktop) -->
+          <li class="nav-item dropdown d-none d-lg-block" id="moreDropdownWrap">
+            <a class="nav-link dropdown-toggle" href="#" id="moreDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              More
+            </a>
+            <div class="dropdown-menu" aria-labelledby="moreDropdown">
+              <a class="dropdown-item" href="#accommodation"><i class="fa fa-bed"></i> Accommodation</a>
+              <a class="dropdown-item" href="#contact"><i class="fa fa-envelope"></i> Contact</a>
+            </div>
+          </li>
+
+          <!-- On large screens when space is enough we also show direct links (JS will toggle) -->
+          <li class="nav-item d-lg-none"><a class="nav-link" href="#accommodation">Accommodation</a></li>
+          <li class="nav-item d-lg-none"><a class="nav-link" href="#contact">Contact</a></li>
+
+          <!-- Desktop direct links (JS toggles based on space) -->
+          <li class="nav-item d-none d-lg-block" id="accommodationDirect"><a class="nav-link" href="#accommodation">Accommodation</a></li>
+          <li class="nav-item d-none d-lg-block" id="contactDirect"><a class="nav-link" href="#contact">Contact</a></li>
+
         </ul>
       </div>
     </div>
@@ -373,7 +552,6 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-10 text-center">
-
           <div class="mb-3">
             <img src="assets/iitg.png" alt="IIT Guwahati Logo" style="
               width:110px;height:110px;object-fit:contain;
@@ -410,7 +588,6 @@
           <div class="mt-4" style="opacity:.92;">
             <strong>Patron:</strong> Prof. Devendra Jalihal, Director, IIT Guwahati
           </div>
-
         </div>
       </div>
     </div>
@@ -422,6 +599,7 @@
     <section id="about" class="soft-bg">
       <div class="container">
         <div class="section-title"><h3>Scope of the Event</h3></div>
+
         <div class="about-center">
           <div class="cardx">
             <p>
@@ -450,17 +628,18 @@
     <section id="topics">
       <div class="container">
         <div class="section-title"><h3>Symposium Topics</h3></div>
-        <div class="tiles-wrap">
-          <div class="tiles-grid">
-            <div class="tile"><div class="tile-ico"><i class="fa fa-star"></i></div><p class="tile-text">Algal biorefinery</p></div>
-            <div class="tile"><div class="tile-ico"><i class="fa fa-star"></i></div><p class="tile-text">Organic waste biorefinery</p></div>
-            <div class="tile"><div class="tile-ico"><i class="fa fa-star"></i></div><p class="tile-text">Algal speciation and growth</p></div>
-            <div class="tile"><div class="tile-ico"><i class="fa fa-star"></i></div><p class="tile-text">Bio-oil extraction technologies</p></div>
-            <div class="tile"><div class="tile-ico"><i class="fa fa-star"></i></div><p class="tile-text">Hydrothermal liquefaction</p></div>
-            <div class="tile"><div class="tile-ico"><i class="fa fa-star"></i></div><p class="tile-text">Anaerobic co-digestion</p></div>
-            <div class="tile"><div class="tile-ico"><i class="fa fa-star"></i></div><p class="tile-text">Thermo-chemical processing</p></div>
-            <div class="tile"><div class="tile-ico"><i class="fa fa-star"></i></div><p class="tile-text">Bio-crude oil upgradation</p></div>
-            <div class="tile"><div class="tile-ico"><i class="fa fa-star"></i></div><p class="tile-text">Techno-economics and life-cycle analysis</p></div>
+
+        <div class="topics-wrap">
+          <div class="topics-grid">
+            <div class="topic-tile"><div class="topic-ico"><i class="fa fa-star"></i></div><p class="topic-title">Algal biorefinery</p></div>
+            <div class="topic-tile"><div class="topic-ico"><i class="fa fa-star"></i></div><p class="topic-title">Organic waste biorefinery</p></div>
+            <div class="topic-tile"><div class="topic-ico"><i class="fa fa-star"></i></div><p class="topic-title">Algal speciation and growth</p></div>
+            <div class="topic-tile"><div class="topic-ico"><i class="fa fa-star"></i></div><p class="topic-title">Bio-oil extraction technologies</p></div>
+            <div class="topic-tile"><div class="topic-ico"><i class="fa fa-star"></i></div><p class="topic-title">Hydrothermal liquefaction</p></div>
+            <div class="topic-tile"><div class="topic-ico"><i class="fa fa-star"></i></div><p class="topic-title">Anaerobic co-digestion</p></div>
+            <div class="topic-tile"><div class="topic-ico"><i class="fa fa-star"></i></div><p class="topic-title">Thermo-chemical processing</p></div>
+            <div class="topic-tile"><div class="topic-ico"><i class="fa fa-star"></i></div><p class="topic-title">Bio-crude oil upgradation</p></div>
+            <div class="topic-tile"><div class="topic-ico"><i class="fa fa-star"></i></div><p class="topic-title">Techno-economics and life-cycle analysis</p></div>
           </div>
           <div class="mt-3 text-center" style="opacity:.8;"><em>Submissions from other relevant areas are also invited.</em></div>
         </div>
@@ -471,17 +650,18 @@
     <section id="speakers" class="soft-bg">
       <div class="container">
         <div class="section-title"><h3>Tentative Invited Speakers</h3></div>
-        <div class="tiles-wrap">
-          <div class="tiles-grid">
-            <div class="tile"><div class="tile-ico"><i class="fa fa-star"></i></div><p class="tile-text">Prof. Ajay Dalai, University of Saskatchewan</p></div>
-            <div class="tile"><div class="tile-ico"><i class="fa fa-star"></i></div><p class="tile-text">Prof. K Mohanty, IIT Guwahati</p></div>
-            <div class="tile"><div class="tile-ico"><i class="fa fa-star"></i></div><p class="tile-text">Prof. Dhanapati Deka, Tezpur University</p></div>
-            <div class="tile"><div class="tile-ico"><i class="fa fa-star"></i></div><p class="tile-text">Dr. Thallada Bhaskar, AMPRI Bhopal and IIP Dehradun</p></div>
-            <div class="tile"><div class="tile-ico"><i class="fa fa-star"></i></div><p class="tile-text">Prof. Vaibhav V Goud, IIT Guwahati</p></div>
-            <div class="tile"><div class="tile-ico"><i class="fa fa-star"></i></div><p class="tile-text">Dr. Garima Srivastava, Banasthali Vidyapith, Banasthali</p></div>
-            <div class="tile"><div class="tile-ico"><i class="fa fa-star"></i></div><p class="tile-text">Dr. Debaprasad Shee, IIT Hyderabad</p></div>
-            <div class="tile"><div class="tile-ico"><i class="fa fa-star"></i></div><p class="tile-text">Prof. Satya Narayan Naik, IIT Delhi</p></div>
-            <div class="tile"><div class="tile-ico"><i class="fa fa-star"></i></div><p class="tile-text">Prof. Nageswara Rao Peela, IIT Guwahati</p></div>
+
+        <div class="speakers-wrap">
+          <div class="speakers-grid">
+            <div class="speaker-tile"><div class="speaker-ico"><i class="fa fa-star"></i></div><p class="speaker-text">Prof. Ajay Dalai, University of Saskatchewan</p></div>
+            <div class="speaker-tile"><div class="speaker-ico"><i class="fa fa-star"></i></div><p class="speaker-text">Prof. K Mohanty, IIT Guwahati</p></div>
+            <div class="speaker-tile"><div class="speaker-ico"><i class="fa fa-star"></i></div><p class="speaker-text">Prof. Dhanapati Deka, Tezpur University</p></div>
+            <div class="speaker-tile"><div class="speaker-ico"><i class="fa fa-star"></i></div><p class="speaker-text">Dr. Thallada Bhaskar, AMPRI Bhopal and IIP Dehradun</p></div>
+            <div class="speaker-tile"><div class="speaker-ico"><i class="fa fa-star"></i></div><p class="speaker-text">Prof. Vaibhav V Goud, IIT Guwahati</p></div>
+            <div class="speaker-tile"><div class="speaker-ico"><i class="fa fa-star"></i></div><p class="speaker-text">Dr. Garima Srivastava, Banasthali Vidyapith, Banasthali</p></div>
+            <div class="speaker-tile"><div class="speaker-ico"><i class="fa fa-star"></i></div><p class="speaker-text">Dr. Debaprasad Shee, IIT Hyderabad</p></div>
+            <div class="speaker-tile"><div class="speaker-ico"><i class="fa fa-star"></i></div><p class="speaker-text">Prof. Satya Narayan Naik, IIT Delhi</p></div>
+            <div class="speaker-tile"><div class="speaker-ico"><i class="fa fa-star"></i></div><p class="speaker-text">Prof. Nageswara Rao Peela, IIT Guwahati</p></div>
           </div>
         </div>
       </div>
@@ -491,6 +671,7 @@
     <section id="dates">
       <div class="container">
         <div class="section-title"><h3>Important Dates</h3></div>
+
         <div class="row">
           <div class="col-lg-12">
             <div class="cardx">
@@ -516,17 +697,21 @@
     <section id="registration" class="soft-bg">
       <div class="container">
         <div class="section-title"><h3>Registration</h3></div>
+
         <div class="row">
           <div class="col-lg-7">
             <div class="cardx">
               <p class="mb-2">Accommodation will be provided in the IITG campus and is included in the registration fee.</p>
+
               <div class="kpi"><i class="fa fa-graduation-cap"></i><div><strong>Students</strong><br>Rs. 2000 / USD 100</div></div>
               <div class="kpi"><i class="fa fa-briefcase"></i><div><strong>Professionals</strong><br>Rs. 4000 / USD 150</div></div>
+
               <a class="btn btn-pill btn-green mt-2" target="_blank" rel="noopener" href="https://forms.office.com/r/BB5jGG9Uhp">
                 <i class="fa fa-ticket"></i> Open Registration Form
               </a>
             </div>
           </div>
+
           <div class="col-lg-5 mt-3 mt-lg-0">
             <div class="cardx">
               <h5 class="font-weight-bold mb-3">Need help?</h5>
@@ -541,137 +726,178 @@
       </div>
     </section>
 
-    <!-- ORGANIZING TEAM (New UI like speakers) -->
-    <section id="organizing-team">
+    <!-- ORGANIZING TEAM -->
+    <section id="organizing-team" class="soft-bg">
       <div class="container">
         <div class="section-title"><h3>Organizing Team</h3></div>
 
-        <div class="tiles-wrap">
-          <div class="tiles-grid">
-            <div class="tile">
-              <div class="tile-ico"><i class="fa fa-star"></i></div>
+        <div class="org-wrap">
+          <div class="org-grid">
+
+            <div class="org-tile">
+              <div class="org-ico"><i class="fa fa-user"></i></div>
               <div>
-                <p class="tile-text mb-1">Patron</p>
-                <p class="tile-sub">Prof. Devendra Jalihal, Director, IIT Guwahati</p>
+                <p class="org-title">Patron</p>
+                <p class="org-desc">Prof. Devendra Jalihal, Director, IIT Guwahati</p>
               </div>
             </div>
 
-            <div class="tile">
-              <div class="tile-ico"><i class="fa fa-star"></i></div>
+            <div class="org-tile">
+              <div class="org-ico"><i class="fa fa-briefcase"></i></div>
               <div>
-                <p class="tile-text mb-1">Chairperson</p>
-                <p class="tile-sub">Prof. Rohit Sinha, Dean Research and Development, IIT Guwahati</p>
+                <p class="org-title">Chairperson</p>
+                <p class="org-desc">Prof. Rohit Sinha, Dean Research and Development, IIT Guwahati</p>
               </div>
             </div>
 
-            <div class="tile">
-              <div class="tile-ico"><i class="fa fa-star"></i></div>
+            <div class="org-tile">
+              <div class="org-ico"><i class="fa fa-users"></i></div>
               <div>
-                <p class="tile-text mb-1">Convener</p>
-                <p class="tile-sub">Dr. Vaibhav V Goud, Professor, Dept. of Chemical Engineering &amp; School of Energy Science and Engineering, IIT Guwahati</p>
+                <p class="org-title">Convener</p>
+                <p class="org-desc">Dr. Vaibhav V Goud, Professor, Department of Chemical Engineering and School of Energy Science and Engineering, IIT Guwahati</p>
               </div>
             </div>
 
-            <div class="tile">
-              <div class="tile-ico"><i class="fa fa-star"></i></div>
+            <div class="org-tile">
+              <div class="org-ico"><i class="fa fa-users"></i></div>
               <div>
-                <p class="tile-text mb-1">Convener</p>
-                <p class="tile-sub">Dr Ajay K Dalai, Professor, University of Saskatchewan, Canada</p>
+                <p class="org-title">Convener</p>
+                <p class="org-desc">Dr Ajay K Dalai, Professor, University of Saskatchewan, Canada</p>
               </div>
             </div>
 
-            <div class="tile">
-              <div class="tile-ico"><i class="fa fa-star"></i></div>
+            <div class="org-tile">
+              <div class="org-ico"><i class="fa fa-users"></i></div>
               <div>
-                <p class="tile-text mb-1">Convener</p>
-                <p class="tile-sub">Dr Nageswara Rao Peela, Professor, Department of Chemical Engineering, IIT Guwahati</p>
+                <p class="org-title">Convener</p>
+                <p class="org-desc">Dr Nageswara Rao Peela, Professor, Department of Chemical Engineering, IIT Guwahati</p>
               </div>
             </div>
+
           </div>
         </div>
+
       </div>
     </section>
 
-    <!-- COMMITTEE MEMBERS (kept) -->
-    <section id="committee-members" class="soft-bg">
+    <!-- ORGANIZING COMMITTEE MEMBERS -->
+    <section id="committee-members">
       <div class="container">
         <div class="committee-title">Organizing Committee Members</div>
+
         <div class="committee-grid">
           <div class="committee-card">Prof. Vijayanand S Moholkar</div>
           <div class="committee-card">Prof. K. Pakshirajan</div>
           <div class="committee-card">Prof. Arun Goyal</div>
           <div class="committee-card">Prof. K. Mohanty</div>
           <div class="committee-card">Prof. Animesh K Golder</div>
+
           <div class="committee-card">Prof. Chandan Das</div>
           <div class="committee-card">Prof. Ramgopal VS Uppaluri</div>
           <div class="committee-card">Prof. Pankaj Tiwari</div>
           <div class="committee-card">Prof. Debasish Das</div>
           <div class="committee-card">Prof. Pankaj Kalita</div>
+
           <div class="committee-card">Prof. Farrukh Khalid</div>
         </div>
       </div>
     </section>
 
-    <!-- HOW TO REACH (separate section) -->
-    <section id="howtoreach">
+    <!-- HOW TO REACH -->
+    <section id="howtoreach" class="soft-bg">
       <div class="container">
         <div class="section-title"><h3>How to Reach</h3></div>
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="cardx">
-              <p class="mb-3">
-                <strong>By Air:</strong>
-                The distance from Lokpriya Gopinath Bordoloi International Airport - Guwahati (GAU) to IIT Guwahati is about 22 kms.
-                In the Arrival Lounge (inside Airport), there is a pre-paid taxi counter. You can take a prepaid taxi from the airport to reach IIT Guwahati campus.
+
+        <div class="reach-wrap">
+          <div class="reach-grid">
+
+            <div class="reach-card">
+              <div class="reach-head">
+                <div class="reach-ico"><i class="fa fa-plane"></i></div>
+                <h4 class="reach-title">By Air</h4>
+              </div>
+
+              <p class="mb-2">
+                The distance from Lokpriya Gopinath Bordoloi International Airport (GAU) to IIT Guwahati is about <strong>22 km</strong>.
+                In the Arrival Lounge (inside Airport), there is a <strong>pre-paid taxi counter</strong>. You can take a prepaid taxi to reach IIT Guwahati campus.
               </p>
-              <p class="mb-0">
-                <strong>By Train:</strong>
-                The distance from Guwahati Railway Station (GHY) to IIT Guwahati is about 18 kms.
-                If you are arriving at Guwahati Railway Station by rail, come out through Platform No.1 exit gate (Panbazar or Lakhtokia side).
-                A limited number of IIT buses run regularly from Guwahati city - Lakhtokia (Near Don Bosco School's Church/ Cotton College Boys Hostel, which is about 0.5 km from the Guwahati Railway Station) to IIT Campus.
-                The distance from Kamakhya Railway Station (KYQ) to IIT Guwahati is about 13 kms. For commuting from Kamakhya Railway Station, you may have to hire taxi or auto-rickshaws.
-              </p>
+
+              <div class="chip-row">
+                <span class="chip"><i class="fa fa-map-marker"></i> Airport (GAU)</span>
+                <span class="chip"><i class="fa fa-road"></i> ~22 km</span>
+                <span class="chip"><i class="fa fa-taxi"></i> Prepaid taxi</span>
+              </div>
             </div>
+
+            <div class="reach-card">
+              <div class="reach-head">
+                <div class="reach-ico"><i class="fa fa-train"></i></div>
+                <h4 classjF class="reach-title">By Train</h4>
+              </div>
+
+              <p class="mb-2">
+                Guwahati Railway Station (GHY) to IIT Guwahati is about <strong>18 km</strong>. If arriving at GHY, come out through
+                <strong>Platform No.1 exit gate</strong> (Panbazar/Lakhtokia side). A limited number of IIT buses run from Lakhtokia
+                (near Don Bosco School's Church / Cotton College Boys Hostel) to IIT campus.
+              </p>
+
+              <p class="mb-0">
+                Kamakhya Railway Station (KYQ) is about <strong>13 km</strong> from IIT Guwahati; for commuting you may need taxi/auto-rickshaw.
+              </p>
+
+              <div class="chip-row">
+                <span class="chip"><i class="fa fa-map-marker"></i> GHY</span>
+                <span class="chip"><i class="fa fa-road"></i> ~18 km</span>
+                <span class="chip"><i class="fa fa-bus"></i> IIT buses (limited)</span>
+              </div>
+            </div>
+
           </div>
         </div>
+
       </div>
     </section>
 
-    <!-- VENUE (separate section + map) -->
-    <section id="venue" class="soft-bg">
+    <!-- VENUE -->
+    <section id="venue">
       <div class="container">
         <div class="section-title"><h3>Venue</h3></div>
 
-        <div class="row">
-          <div class="col-lg-6 mb-3 mb-lg-0">
-            <div class="cardx">
-              <p class="mb-0" style="font-size:1.03rem; line-height:1.8;">
-                <strong>Conference Centre</strong><br>
-                Indian Institute of Technology Guwahati,<br>
-                Guwahati, Assam<br>
-                INDIA – 781039
-              </p>
+        <div class="venue-grid">
+          <div class="cardx">
+            <h5 class="font-weight-bold mb-2"><i class="fa fa-map-marker"></i> Conference Centre</h5>
+            <p class="mb-0">
+              Conference Centre,<br>
+              Indian Institute of Technology Guwahati,<br>
+              Guwahati, Assam, INDIA – 781039
+            </p>
+
+            <div class="mt-3 d-flex flex-wrap" style="gap:10px;">
+              <a class="btn btn-outline-dark" style="border-radius:12px; font-weight:900;"
+                 target="_blank" rel="noopener"
+                 href="https://www.google.com/maps?q=IIT+Guwahati+Conference+Centre">
+                <i class="fa fa-external-link"></i> Open in Google Maps
+              </a>
             </div>
           </div>
 
-          <div class="col-lg-6">
-            <div class="map-wrap">
-              <!-- Google Maps embed: IIT Guwahati -->
-              <iframe
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-                src="https://www.google.com/maps?q=IIT%20Guwahati&output=embed">
-              </iframe>
-            </div>
-          </div>
+          <!-- Map embed -->
+          <iframe
+            class="map-embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=IIT%20Guwahati%20Conference%20Centre&output=embed">
+          </iframe>
         </div>
+
       </div>
     </section>
 
     <!-- ACCOMMODATION -->
-    <section id="accommodation">
+    <section id="accommodation" class="soft-bg">
       <div class="container">
         <div class="section-title"><h3>Accommodation</h3></div>
+
         <div class="row">
           <div class="col-lg-12">
             <div class="cardx">
@@ -693,7 +919,7 @@
         <div class="row">
           <div class="col-lg-7">
             <div class="cardx">
-              <h5 style="font-weight:900;">Conveners</h5>
+              <h5>Conveners</h5>
               <ul class="list-clean mb-3">
                 <li>Dr. Vaibhav V Goud, Professor, Department of Chemical Engineering, IIT Guwahati</li>
                 <li>Dr Ajay K Dalai, Professor, University of Saskatchewan, Canada</li>
@@ -755,45 +981,75 @@
     });
   </script>
 
-  <!-- Mobile nav: close on link click + close when tapping outside -->
   <script>
+    // Close mobile navbar: click link OR click outside
     (function () {
       var nav = document.getElementById("nav");
       var toggler = document.querySelector(".navbar-toggler");
       if (!nav || !toggler) return;
 
-      // Close on nav-link click
-      nav.querySelectorAll("a.nav-link").forEach(function (link) {
-        link.addEventListener("click", function () {
-          if (nav.classList.contains("show")) {
-            $(".navbar-toggler").click();
-          }
+      function isNavOpen(){ return nav.classList.contains("show"); }
+      function closeNav(){
+        if (isNavOpen()) toggler.click();
+      }
+
+      // Close after clicking any nav link (mobile)
+      nav.querySelectorAll("a.nav-link, .dropdown-item").forEach(function(link){
+        link.addEventListener("click", function(){
+          // only close if mobile open
+          closeNav();
         });
       });
 
-      // Close when tapping outside navbar (mobile)
-      document.addEventListener("click", function (e) {
-        if (!nav.classList.contains("show")) return;
-
+      // Close if user taps outside navbar when open (mobile)
+      document.addEventListener("click", function(e){
+        if (!isNavOpen()) return;
         var clickedInsideNav = nav.contains(e.target);
         var clickedToggler = toggler.contains(e.target);
-
-        if (!clickedInsideNav && !clickedToggler) {
-          $(".navbar-toggler").click();
-        }
+        if (!clickedInsideNav && !clickedToggler) closeNav();
       }, true);
 
-      // Close on touch outside (extra reliability)
-      document.addEventListener("touchstart", function (e) {
-        if (!nav.classList.contains("show")) return;
+      // Desktop: keep Contact/Accommodation visible if enough space; otherwise move to More
+      function updateNavFit(){
+        var moreWrap = document.getElementById("moreDropdownWrap");
+        var acc = document.getElementById("accommodationDirect");
+        var con = document.getElementById("contactDirect");
+        if(!moreWrap || !acc || !con) return;
 
-        var clickedInsideNav = nav.contains(e.target);
-        var clickedToggler = toggler.contains(e.target);
+        var navBar = document.querySelector(".navbar .container");
+        var collapse = document.getElementById("nav");
+        if(!navBar || !collapse) return;
 
-        if (!clickedInsideNav && !clickedToggler) {
-          $(".navbar-toggler").click();
+        // Only on lg+ screens
+        if (window.innerWidth < 992){
+          // On mobile, show direct links (inside collapse list)
+          moreWrap.classList.add("d-none");
+          return;
         }
-      }, {passive:true});
+
+        // Show dropdown by default
+        moreWrap.classList.remove("d-none");
+        // Try to show direct links; if overflow happens, hide them
+        acc.classList.remove("d-none");
+        con.classList.remove("d-none");
+
+        // If nav overflows horizontally, hide direct links (keep in More)
+        // Use scrollWidth vs clientWidth on collapse row
+        var ul = collapse.querySelector(".navbar-nav");
+        if(!ul) return;
+
+        // Temporarily allow layout
+        var overflow = ul.scrollWidth > ul.clientWidth + 4;
+
+        if (overflow){
+          acc.classList.add("d-none");
+          con.classList.add("d-none");
+        }
+      }
+
+      window.addEventListener("resize", updateNavFit);
+      window.addEventListener("load", updateNavFit);
+      setTimeout(updateNavFit, 200);
     })();
   </script>
 
