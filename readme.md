@@ -5,6 +5,8 @@ scheduled on **March 21–22, 2026** at **Indian Institute of Technology (IIT) G
 
 ---
 
+🔗 Live Website: https://event.01072003.xyz
+
 ## 📌 About the Symposium
 
 This symposium brings together researchers, academicians, industry experts, and students from across the globe to discuss **state-of-the-art research and technologies** in:
