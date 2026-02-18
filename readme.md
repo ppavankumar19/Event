@@ -5,7 +5,7 @@ scheduled on **March 21–22, 2026** at **Indian Institute of Technology (IIT) G
 
 ---
 
-🔗 Live Website: https://event.01072003.xyz
+🔗 Live Website: https://event.iitg.ac.in/algae2026/
 
 ## 📌 About the Symposium
 
