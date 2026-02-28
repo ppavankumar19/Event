@@ -64,9 +64,9 @@ The event focuses on **sustainable, economically viable, and environmentally res
 
 ## 🗓 Important Dates
 
-- **Last Date for Abstract Submission:** 20 February 2026  
-- **Intimation of Acceptance:** 20 February 2026  
-- **Last Date for Registration:** 28 February 2026  
+- **Last Date for Abstract Submission:** 07 March 2026  
+- **Intimation of Acceptance:** 07 March 2026  
+- **Last Date for Registration:** 08 March 2026  
 
 ---
 
@@ -78,6 +78,11 @@ The event focuses on **sustainable, economically viable, and environmentally res
 | Professionals   | ₹4000 / USD 150 |
 
 ✔ Accommodation is included in the registration fee.
+
+Bank Account Details:
+- Name: Symposium
+- Account Number: 44811918331
+- IFSC Code: SBIN0014262
 
 🔗 Registration Link:  
 https://forms.office.com/r/BB5jGG9Uhp
